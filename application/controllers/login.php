@@ -14,26 +14,26 @@ class Login extends CI_Controller {
 		$this->load->view('login');
     }
 
-    public function login()
+    function login(){
+       public function login()
 	{
 		$this->load->view('login');
 	}
 
     public function check_login(){  
-		$shoppername=$this->input->post('shoppername');
-		$password=$this->input->post('upassword');
+		$email=$this->input->post('uemail');
+			$password=$this->input->post('upassword');
 
-        $res=$this->Login_model->islogin($email, $password);  
+        $res=$this->dashboard_model->islogin($email, $password);  
 
         if($res){     
-           echo base_url()."shopper/dashboard/";  
+            $this->session->set_userdata('id',$data['name']);
+           echo base_url()."login/dashboard/";              
         }  
         else{  
-           echo ;  
+           $this->session->set_flashdata('message', 'Enter Correct Login details');  
         }   
     } 
-   
-    
     function logout(){
         $this->session->sess_destroy();
         redirect(base_url('login'));

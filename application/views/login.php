@@ -1,82 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Register</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div class="container">
-<h1 align="center">LOGIN PAGE</h1>
-  <h2>Enter Login Details</h2>
-  <form class="w3-container" method="post">
-	<div class="alert alert-success alert-dismissible" id="success" style="display:none;">
-	  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-	</div>
-	
-	<div class="form-group">
-      <label for="sname">Shopper Name:</label>
-      <input type="text" class="form-control" id="sname" placeholder="Enter Shopper Name" >
+<title>Login | CI Project</title>
+<?php if(isset($_SESSION['success'])) { ?>
+    <?php echo $_SESSION['success']; ?>
+   <?php } 
+   ?>
+
+
+<div class=" login-page">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="" class="h1"><b>LOGIN</b></a>
+        <?php if(isset($_SESSION['msg'])) { ?>
+          <h5> <div class="alert alert-danger"> <?php echo $_SESSION['msg']; ?></h3>
+        <?php }  ?>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Sign in to start </p><br>
+
+        <form action="" method="post">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <span style="color:red" class="danger" ><?php echo form_error('email'); ?> </span>
+          <br>
+
+          <div class="input-group mb-3">
+           <input type="password" class="form-control" name="password" placeholder="Password"><br>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+            <span style="color:red"><?php echo form_error('password'); ?> 
+            </span>
+            <!-- /.col -->
+            <div class="col-8">
+              <br>
+              <button type="submit" name="login" class="btn btn-primary btn-block">Sign In</button>
+            </div>
+            <!-- /.col -->
+          </form>
+
+        </div>
+         <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
     </div>
-	<div class="form-group">
-      <label for="password"> Password:</label>
-      <input type="password" class="form-control" id="pswd" placeholder="Enter Password" >
-    </div>
-    <button type="submit" class="btn btn-primary" id="submit">Submit</button>
- <div class="d-flex justify-content-center links">
-	Don't have an account?<?php echo anchor("crud/register", "Register Yourself"); ?>
-</div>
-</div>
-<div id='err_msg' style='display: none'>  
-    <div id='content_result'>  
-    <div id='err_show' class="w3-text-red">  
-    <div id='msg'> </div>  
-  </div></div>
-</div>  
-</form>
+   <!-- /.login-box -->
+  </div>
 
-<script type="text/javascript">  
-  
-    // Ajax post  
-    $(document).ready(function(){  
-    $("#submit").click(function(){  
-    var name = $("#sname").val();  
-    var password = $("#pswd").val(); 
-
-    // Returns error message when submitted without req fields.  
-    if(name==''||password=='')  
-    {  
-    jQuery("div#err_msg").show();  
-    jQuery("div#msg").html("All fields are required");  
-    }  
-    else  
-    {  
-    // AJAX Code To Submit Form.  
-    $.ajax({  
-    type: "POST",  
-    url:  "<?php echo base_url("login/check_login"); ?>" + "",  
-    data: {sname: name, pswd: password},  
-    cache: false,  
-    success: function(result){
-     // console.log("result");  
-        if(result!=0){  
-            // On success redirect.  
-        window.location.replace(result);  
-        }  
-        else  
-            jQuery("div#err_msg").show();  
-            jQuery("div#msg").html("Login Failed");  
-    }  
-    });  
-    }
-    return false;  
-    });  
-    });  
-</script> 
-
-</body>
-</html>
+ 

@@ -5,38 +5,37 @@ class Login extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+		$this->load->helper('form');
     }
 	
 	public function index()
 	{
-        if(isset($_SESSION['login_id']))
-            redirect(base_url());
+		$data['title'] = "Login | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/header', $data);
 		$this->load->view('login');
+		$this->load->view('includes/footer');
     }
 
-    function login(){
-       public function login()
+	public function home()
 	{
-		$this->load->view('login');
-	}
-
-    public function check_login(){  
-		$email=$this->input->post('uemail');
-			$password=$this->input->post('upassword');
-
-        $res=$this->dashboard_model->islogin($email, $password);  
-
-        if($res){     
-            $this->session->set_userdata('id',$data['name']);
-           echo base_url()."login/dashboard/";              
-        }  
-        else{  
-           $this->session->set_flashdata('message', 'Enter Correct Login details');  
-        }   
-    } 
-    function logout(){
-        $this->session->sess_destroy();
-        redirect(base_url('login'));
+		$data['title'] = "Home | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('home');
+		$this->load->view('includes/footer');
     }
+
+	
+
+	public function dashboard()
+	{
+		$data['title'] = "dashboard | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('dashboard');
+		$this->load->view('includes/footer');
+    }
+
    
 }
+?>

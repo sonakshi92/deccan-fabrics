@@ -12,7 +12,6 @@ class Login extends CI_Controller {
 	{
 		$data['title'] = "Login | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/header', $data);
 		$this->load->view('login');
 		$this->load->view('includes/footer');
     }
@@ -21,6 +20,7 @@ class Login extends CI_Controller {
 	{
 		$data['title'] = "Home | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
 		$this->load->view('home');
 		$this->load->view('includes/footer');
     }

@@ -16,10 +16,6 @@
 </div>
 
 
-<!-- jQuery -->
-<!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
 </script>
@@ -49,3 +45,10 @@
 <script src="<?php echo base_url(); ?>assets/theme/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url(); ?>assets/theme/dist/js/pages/dashboard.js"></script>
+<!-- jQuery -->
+<script src="<?php echo base_url(); ?>assets/theme/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI -->
+<script src="<?php echo base_url(); ?>assets/theme/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="<?php echo base_url(); ?>assets/theme/plugins/moment/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/theme/plugins/fullcalendar/main.js"></script>

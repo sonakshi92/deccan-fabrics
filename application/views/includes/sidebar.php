@@ -13,7 +13,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="home" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"> Emergency Contacts</a>
@@ -128,19 +128,7 @@
           <!-- <img src="<?php //echo base_url(); ?>assets/theme/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"> -->
         </div>
         <div class="info">
-          <a href="#" class="d-block"> Raymond  </a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
+          <a href="#" class="d-block"> Raymond | Jockey </a>
         </div>
       </div>
 
@@ -148,50 +136,30 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
-                <a href="./index2.html" class="nav-link ">
-                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>Dashboard</p>
-                </a>
+               <li class="nav-item">
+            <p class="nav-link"><i class="nav-icon fas fa-home"></i><?php echo anchor('login/dashboard', 'Dashboard')?></p>
               </li>
           
-          </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
-              <p>
-                Home
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                Billing
-                <i class="fas fa-angle-left right"></i>
-                <!-- <span class="badge badge-info right">6</span> -->
-              </p>
-            </a>
+            <p class="nav-link"><i class="nav-icon fas fa-table"></i><?php echo anchor('bill/billing', 'Billing')?></p>
+            
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('bill/billing', 'New Billing')?></p>
+                  <p class="nav-link"><i class="nav-icon far fa-circle text-info"></i><?php echo anchor('bill/billing', 'New Billing')?></p>
                 </a>
               </li>
               <li class="nav-item">
-                  <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('bill/exchange', 'Exchange Billing')?></p>
+                  <p class="nav-link"><i class="nav-icon far fa-circle text-success"></i><?php echo anchor('bill/exchange', 'Exchange Billing')?></p>
                 </a>
               </li>
               <li class="nav-item">
-                  <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('bill/void', 'Void Billing')?></p>
+                  <p class="nav-link"><i class="nav-icon far fa-circle text-warning"></i><?php echo anchor('bill/void', 'Void Billing')?></p>
                 </a>
               </li>
               <li class="nav-item">
-                  <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('bill/return', 'Return via stock')?></p>
+                  <p class="nav-link"><i class="nav-icon far fa-circle text-danger"></i><?php echo anchor('bill/return', 'Return via stock')?></p>
                 </a>
               </li>
               
@@ -201,33 +169,22 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Charts
+                Reports
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
+                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('report/daily', 'Daily Report')?></p>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
+                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('report/monthly', 'Monthly Report')?></p>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
+                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('report/yearly', 'Yearly Report')?></p>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>uPlot</p>
+              <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('report/date', 'Date Wise')?></p>
                 </a>
               </li>
             </ul>

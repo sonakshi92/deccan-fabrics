@@ -5,11 +5,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create a New Bill</h1>
+            <h1> Return Billing </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"> New Bill  </a></li>
+              <li class="breadcrumb-item"><a href="#"> Exchange Bill  </a></li>
               <li class="breadcrumb-item active"> <?php echo date('d/m/Y') ?></li>
             </ol>
           </div>
@@ -25,10 +25,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title"> Invoice No: 
-                
-
-                
+                <h3 class="card-title"> Invoice No:<input type="text" class="form-control">
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
@@ -36,7 +33,7 @@
                 <form method="post" enctype="multipart/form-data" action="<?php echo base_url().'user/addContracts';?>">  
                 <label > Enter Invoice Prefix: </label>
                     <input type="text" class="form-control" name="pre" size="50">
-                      <span style="color:red" class="danger" ><?php echo form_error('name_of_company'); ?> </span>
+                      <span style="color:red" class="danger" ></span>
                 </div>
               </div>
                 <div class="col-md-6">
@@ -113,7 +110,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title"> Billing: <?php ?></h3>
+                <h3 class="card-title"> Return Billing: <?php ?></h3>
               </div>
               <!-- /.card-header -->
              <!-- /.card-header -->
@@ -153,11 +150,9 @@
                 </table>
                 <div class="card-header">
                       <ol class="h2 breadcrumb float-sm-center">
-                        <li class="breadcrumb-item"> Total Exchange Value </li>
+                        <li class="breadcrumb-item"> Total Return Value </li>
                         <li class="breadcrumb-item active">  Rs. 2700 </li>
                       </ol>
-                      <button class="btn btn-info fa fa-unlink" > Exchange</button>
-                      <button class="btn btn-danger fa fa-trash" > Void </button>
                       <button class="btn btn-warning fa fa-unlink" > Return </button>
                     </div>
               </div>

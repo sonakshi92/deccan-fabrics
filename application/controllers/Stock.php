@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bill extends CI_Controller {
+class Account extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -10,48 +10,50 @@ class Bill extends CI_Controller {
 
     public function index()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Stocks | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('bills/billing');
+		$this->load->view('stock/balance');
 		$this->load->view('includes/footer');
     }
 
 
-    public function billing()
+    public function balance()
+	{
+		$data['title'] = "Stock balance | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/balance');
+		$this->load->view('includes/footer');
+    }
+
+	public function inward()
 	{
 		$data['title'] = "billing | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('bills/billing');
+		$this->load->view('stock/purchases');
 		$this->load->view('includes/footer');
     }
 
-	public function exchange()
+    public function outward()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Goods Outward | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('bills/exchange');
+		$this->load->view('stock/outward');
 		$this->load->view('includes/footer');
     }
 
-	public function void()
+	public function paidpayments()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('bills/exchange');
-		$this->load->view('includes/footer');
+		
     }
 
-	public function return()
+	public function pendingpayments()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('bills/return');
-		$this->load->view('includes/footer');
+		
     }
+	
 }
 ?>

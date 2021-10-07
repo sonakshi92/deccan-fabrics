@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bill extends CI_Controller {
+class Customer extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -13,44 +13,26 @@ class Bill extends CI_Controller {
 		$data['title'] = "billing | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('bills/billing');
+		$this->load->view('customer/view');
 		$this->load->view('includes/footer');
     }
 
 
-    public function billing()
+    public function addcust()
 	{
 		$data['title'] = "billing | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('bills/billing');
+		$this->load->view('customers/add');
 		$this->load->view('includes/footer');
     }
 
-	public function exchange()
+	public function editcust()
 	{
 		$data['title'] = "billing | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('bills/exchange');
-		$this->load->view('includes/footer');
-    }
-
-	public function void()
-	{
-		$data['title'] = "billing | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('bills/exchange');
-		$this->load->view('includes/footer');
-    }
-
-	public function return()
-	{
-		$data['title'] = "billing | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('bills/return');
+		$this->load->view('customer/edit');
 		$this->load->view('includes/footer');
     }
 }

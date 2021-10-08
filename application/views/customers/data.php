@@ -5,16 +5,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1> Customers List </h1><br>
-            <h4>
-              Sort By: <select class="form-control">
-              <option> Signature </option>
-              <!-- earn 4 points on every Rs. 100 and should shop of 30,000 annually -->
-              <option> Privilege </option>
-              <!-- earn 2 points on every Rs. 100 and should shop of 15,000 annually -->
-              <option> Prestige </option>
-              <!-- earn 1 points on every Rs. 100 and should shop of 3,000 annually -->
-            </select>
-            </h4>
+            
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -25,6 +16,21 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-body">
+              <h4>
+              Sort By: <select class="form-control">
+              <option> Signature </option>
+              <!-- earn 4 points on every Rs. 100 and should shop of 30,000 annually -->
+              <option> Privilege </option>
+              <!-- earn 2 points on every Rs. 100 and should shop of 15,000 annually -->
+              <option> Prestige </option>
+              <!-- earn 1 points on every Rs. 100 and should shop of 3,000 annually -->
+            </select>
+            </h4>
         <form method="post">  
     <!-- Main content -->
     <section class="content">

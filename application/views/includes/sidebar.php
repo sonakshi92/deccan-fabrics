@@ -89,13 +89,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('report/daily', 'Daily Sales Report')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('report/daily', 'Daily Sales Report')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('report/monthly', 'Monthly Sales Report')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('report/monthly', 'Monthly Sales Report')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('report/custom', 'Sales Report')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('report/custom', 'Sales Report')?></p>
               </li>
             </ul>
           </li>
@@ -113,28 +113,28 @@
                 <p class="nav-link"><i class="nav-icon far fa-circle text-success"></i><?php echo anchor('account/cashbook', 'Cash Book')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/monthbook', 'Monthly Book')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-success"></i><?php echo anchor('account/monthbook', 'Monthly Book')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/yearbook', 'Year Book')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-success"></i><?php echo anchor('account/yearbook', 'Year Book')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/payments', 'Payment Details')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('account/payments', 'Payment Details')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/paid', 'Payments Done')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('account/paid', 'Payments Done')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/pending', 'Pending payments')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('account/pending', 'Pending payments')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/documents', 'Documents')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-danger"></i><?php echo anchor('account/documents', 'Documents')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/bankdeatails', 'View Bank Details')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('account/bankdeatails', 'View Bank Details')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('account/addbank', 'Add Bank Details')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('account/addbank', 'Add Bank Details')?></p>
               </li>
             </ul>
           </li>
@@ -149,19 +149,19 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('customer', 'List of Customers')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer', 'List of Customers')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('customer/add', 'Add Customer')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/add', 'Add Customer')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('customer/request', 'Customer Request')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/request', 'Customer Request')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('customer/viewreq', 'View Request')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/viewreq', 'View Request')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('customer/sendemail', 'Send Email')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/sendemail', 'Send Email')?></p>
               </li>
             </ul>
             <li class="nav-item">
@@ -174,13 +174,13 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('employee', 'List of Employees')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee', 'List of Employees')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('employee/add', 'Add Employee')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee/add', 'Add Employee')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('employee/salaries', 'Salaries')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee/salaries', 'Salaries')?></p>
               </li>
             </ul>
             <li class="nav-item">
@@ -193,13 +193,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('stock/balance', 'Stock Balance')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('stock/balance', 'Stock Balance')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('stock/missing', 'Stock Missing')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('stock/missing', 'Stock Missing')?></p>
               </li>
               <li class="nav-item">
-                <p class="nav-link"><i class="far fa-circle nav-icon"></i><?php echo anchor('stock/yearend', 'Year End')?></p>
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('stock/yearend', 'Year End')?></p>
               </li>
             </ul>
             <li class="nav-item">

@@ -61,7 +61,7 @@
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
+                <span class="info-box-text"> Last Year Sales </span>
                 <span class="info-box-number">760</span>
               </div>
               <!-- /.info-box-content -->

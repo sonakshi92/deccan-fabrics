@@ -26,7 +26,16 @@ class Account extends CI_Controller {
 		$this->load->view('includes/footer');
     }
 
-    public function account()
+	public function details()
+	{
+		$data['title'] = "Cash Book | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('accounts/details');
+		$this->load->view('includes/footer');
+    }
+
+    public function payments()
 	{
 		$data['title'] = "Accounts | Deccan Fabrics";
 		$this->load->view('includes/header', $data);

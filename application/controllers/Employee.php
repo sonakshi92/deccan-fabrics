@@ -10,29 +10,38 @@ class Employee extends CI_Controller {
 
     public function index()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Employees | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('customer/view');
+		$this->load->view('employees/data');
 		$this->load->view('includes/footer');
     }
 
 
-    public function addemp()
+    public function add()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Add Customer | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('customers/add');
+		$this->load->view('employees/add');
 		$this->load->view('includes/footer');
     }
 
-	public function editemp()
+	public function edit()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Edit Customer | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('customer/edit');
+		$this->load->view('employees/edit');
+		$this->load->view('includes/footer');
+    }
+
+	public function salaries()
+	{
+		$data['title'] = "employees Requests | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('employees/salaries');
 		$this->load->view('includes/footer');
     }
 }

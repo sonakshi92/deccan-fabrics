@@ -1,4 +1,5 @@
 <title>Login | CI Project</title>
+
 <?php if(isset($_SESSION['success'])) { ?>
     <?php echo $_SESSION['success']; ?>
    <?php } 
@@ -11,8 +12,8 @@
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
         <a href="" class="h1"><b>LOGIN</b></a>
-        <?php if(isset($_SESSION['msg'])) { ?>
-          <h5> <div class="alert alert-danger"> <?php echo $_SESSION['msg']; ?></h3>
+        <?php if( $this->session->flashdata('message')) { ?>
+          <h6> <div class="alert alert-danger"> <?php echo $this->session->flashdata('message'); ?></h3>
         <?php }  ?>
       </div>
       <div class="card-body">
@@ -20,14 +21,14 @@
 
         <form action="" method="post">
           <div class="input-group mb-3">
-            <input type="email" class="form-control" name="email" placeholder="Email">
+            <input type="text" class="form-control" name="username" placeholder="User Name">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
               </div>
             </div>
           </div>
-          <span style="color:red" class="danger" ><?php echo form_error('email'); ?> </span>
+          <span style="color:red" class="danger" ><?php echo form_error('shoppername'); ?> </span>
           <br>
 
           <div class="input-group mb-3">

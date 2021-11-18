@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Account extends CI_Controller {
+class Stock extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -13,10 +13,9 @@ class Account extends CI_Controller {
 		$data['title'] = "Stocks | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('stock/balance');
+		$this->load->view('stock/index');
 		$this->load->view('includes/footer');
     }
-
 
     public function balance()
 	{
@@ -24,6 +23,24 @@ class Account extends CI_Controller {
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('stock/balance');
+		$this->load->view('includes/footer');
+    }
+
+	public function vendor()
+	{
+		$data['title'] = "Goods Payments | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/vendor');
+		$this->load->view('includes/footer');
+    }
+
+	public function itemMaster()
+	{
+		$data['title'] = "Goods Payments | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/itemMaster');
 		$this->load->view('includes/footer');
     }
 
@@ -45,15 +62,21 @@ class Account extends CI_Controller {
 		$this->load->view('includes/footer');
     }
 
-	public function paidpayments()
+	public function payments()
 	{
-		
+		$data['title'] = "Goods Payments | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/payments');
+		$this->load->view('includes/footer');
     }
-
-	public function pendingpayments()
+	public function purchaseDetails()
 	{
-		
+		$data['title'] = "Purchase Details | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/viewPurchases');
+		$this->load->view('includes/footer');
     }
-	
 }
 ?>

@@ -13,17 +13,22 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="home" class="nav-link">Home</a>
+        <a href="<?php echo base_url();?>login/dashboard" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link"> Emergency Contacts</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+    <li class="nav-item d-none d-sm-inline-block">
+        <a href="<?php echo base_url();?>login/logout" class="nav-link">Logout</a>
       </li>
     </ul>
   </nav>
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-light-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" >
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="<?php echo base_url(); ?>assets/theme/dist/img/Raymond.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -200,6 +205,15 @@
               </li>
               <li class="nav-item">
                 <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('stock/yearend', 'Year End')?></p>
+              </li>
+              <li class="nav-item">
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('stock/itemMaster', 'Item Master')?></p>
+              </li>
+              <li class="nav-item">
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('stock/inward', 'Purchase')?></p>
+              </li>
+              <li class="nav-item">
+                <p class="nav-link"><i class="far fa-circle nav-icon text-info"></i><?php echo anchor('stock/purchaseDetails', 'View Purchases')?></p>
               </li>
             </ul>
             <li class="nav-item">

@@ -29,8 +29,8 @@
 						<div class="card-header">
 							<div class="row">
 								<div class="col-md-3">
-									<div class="form-group">
-										<label>Start Date:</label>
+                                    <div class="form-group">
+									<label>Start Date:</label>
 										<input type="date" class="form-control">
 									</div>
 								</div>
@@ -45,56 +45,51 @@
 								<table id="example2" class="table table-bordered table-hover table-striped">
 									<thead class="table-dark">
 										<tr>
-											<th>Invoice Date</th>
-											<th>Vendor Name</th>
-											<th>Invoice NO.</th>
-											<th>System Entry Date</th>
-											<th>Purchases Info</th>
-											<th>Total Qty</th>
-											<th>Invoice Total</th>
-											<th>Action:</th>
+											<th>Month</th>
+											<th>Cash Payment</th>
+											<th>UPI Payment</th>
+											<th>Credit Card Payment</th>
+											<th>Return</th>
+											<th>Bill Total</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>01/01/2021</td>
-											<td>ABC</td>
-											<td>PT21/25</td>
-											<td>10/01/2021</td>
-											<td>Ready Made</td>
-											<td>40</td>
-											<td>70005</td>
-											<td><i class="fas fa-edit" style="color:blue"></i>
-												<i class="fas fa-trash" style="color:red"></i>
-											</td>
+											<td>January</td>
+											<td>4000</td>
+											<td></td>
+											<td>2000</td>
+											<td></td>
+											<td>6000</td>
 										</tr>
-										<tr>
-											<td>01/01/2021</td>
-											<td>XYX</td>
-											<td>PT21/26</td>
-											<td>10/01/2021</td>
-											<td>Raymond</td>
-											<td>80</td>
-											<td>80000</td>
-											<td><i class="fas fa-edit" style="color:blue"></i>
-												<i class="fas fa-trash" style="color:red"></i>
-											</td>
+                                        <tr>
+											<td>February</td>
+											<td></td>
+											<td>10000</td>
+											<td></td>
+											<td></td>
+											<td>10000</td>
 										</tr>
-										<tr>
-											<td>01/01/2021</td>
-											<td>AAA</td>
-											<td>PT21/27</td>
-											<td>10/01/2021</td>
-											<td>Jockey</td>
-											<td>100</td>
-											<td>9000</td>
-											<td><i class="fas fa-edit" style="color:blue"></i>
-												<i class="fas fa-trash" style="color:red"></i>
-											</td>
+                                        <tr>
+											<td>March</td>
+											<td>8500</td>
+											<td>200</td>
+											<td></td>
+											<td></td>
+											<td>8700</td>
+										</tr>
+                                        <tr>
+											<td>April</td>
+											<td>8500</td>
+											<td>200</td>
+											<td></td>
+											<td></td>
+											<td>-8700</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
+                            <h4>Total:10600</h4>
 						</div>
 					</div>
 				</div>

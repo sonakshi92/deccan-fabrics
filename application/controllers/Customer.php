@@ -20,7 +20,7 @@ class Customer extends CI_Controller {
 
     public function add()
 	{
-		$data['title'] = "Add Customer | Deccan Fabrics";
+		$data['title'] = "Customer Details | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('customers/add');
@@ -29,28 +29,19 @@ class Customer extends CI_Controller {
 
 	public function edit()
 	{
-		$data['title'] = "Edit Customer | Deccan Fabrics";
+		$data['title'] = "Customer Details | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('customers/edit');
+		$this->load->view('customers/add');
 		$this->load->view('includes/footer');
     }
 
-	public function request()
+	public function requirement()
 	{
-		$data['title'] = "Customers Requests | Deccan Fabrics";
+		$data['title'] = "Customers Requirement | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('customers/request');
-		$this->load->view('includes/footer');
-    }
-
-	public function viewreq()
-	{
-		$data['title'] = "Status of Requests | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('customers/view_request.php');
+		$this->load->view('customers/requirement');
 		$this->load->view('includes/footer');
     }
 }

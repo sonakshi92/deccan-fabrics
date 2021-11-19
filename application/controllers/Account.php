@@ -26,6 +26,24 @@ class Account extends CI_Controller {
 		$this->load->view('includes/footer');
     }
 
+	public function monthlybook()
+	{
+		$data['title'] = "Monthly Book | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('accounts/monthlybook');
+		$this->load->view('includes/footer');
+    }
+
+	public function yearlybook()
+	{
+		$data['title'] = "Yearly Book | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('accounts/yearlybook');
+		$this->load->view('includes/footer');
+    }
+
 	public function details()
 	{
 		$data['title'] = "Cash Book | Deccan Fabrics";
@@ -35,17 +53,8 @@ class Account extends CI_Controller {
 		$this->load->view('includes/footer');
     }
 
-    public function payments()
-	{
-		$data['title'] = "Accounts | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('accounts/paid');
-		$this->load->view('accounts/pending');
-		$this->load->view('includes/footer');
-    }
-
-	public function savedocument()
+    
+	public function documents()
 	{
 		$data['title'] = "Documents | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
@@ -63,39 +72,22 @@ class Account extends CI_Controller {
 		$this->load->view('includes/footer');
     }
 
-	public function editbank()
+	public function bankdetails()
 	{
-		$data['title'] = "Edit Bank Details | Deccan Fabrics";
+		$data['title'] = "Bank Details | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('accounts/editbank');
+		$this->load->view('accounts/bankdetails');
 		$this->load->view('includes/footer');
     }
 
-	public function deletebank()
+	public function payments()
 	{
-		
-    }
-
-	public function paidpayments()
-	{
-		$data['title'] = "Paid Payments | Deccan Fabrics";
+		$data['title'] = "Payment Details | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('account/paid');
+		$this->load->view('accounts/payments');
 		$this->load->view('includes/footer');
-		
     }
-
-	public function pendingpayments()
-	{
-		$data['title'] = "Pending Payments | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('account/pending');
-		$this->load->view('includes/footer');
-		
-    }
-
 }
 ?>

@@ -10,7 +10,7 @@
 				<div class="col-sm-6">
 					<ol class="breadcrumb float-sm-right">
 						<li class="breadcrumb-item"><a href="#"><?php echo  explode('|',trim($title))[0]; ?></a></li>
-						<li class="breadcrumb-item active"><?php echo date('d/m/Y');?></li>
+						<li class="breadcrumb-item active"> <?php echo date('d/m/Y'); ?></li>
 					</ol>
 				</div>
 			</div>
@@ -25,39 +25,43 @@
 					<div class="card">
 
 						<div class="card-body">
-							<select name="price type" class="form-control" id="">
-								<option>Balance According to Purchases</option>
-								<option>Balance According to Retail</option>
-							</select>
+           
 							<table id="example2" class="table table-bordered table-hover table-striped">
 								<thead class="table-dark">
 									<tr>
 										<th>Brand</th>
 										<th>Category</th>
+										<th>Stock No</th>
 										<th>Quantity</th>
-										<th>Price</th>
+										<th>Qty</th>
+										<th>Retail Price</th>
+										<th>Purchase Price</th>
+										<th>Status</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td>Raymond</td>
 										<td>Suiting</td>
+										<td>swewsd1000</td>
+										<td>001</td>
+										<td>10</td>
 										<td>1000</td>
-										<td>100000</td>
-									</tr>
-									<tr>
-										<td>Jockey</td>
-										<td>T-Shirt</td>
-										<td>100</td>
-										<td>1000</td>
+										<td>800</td>
+										<td><select name="status" class="form-control" id="">
+												<option>Not Found</option>
+												<option>Found</option>
+											</select>
+										</td>
 									</tr>
 								</tbody>
 							</table>
-							<h3>Stock Balane Total: 100100</h3>
+							<h4>Missing Balance according to Retail Price: 1000</h4>
+							<h4>Missing Balance according to Purchase Price: 800</h4>
 						</div>
 					</div>
 				</div>
-				</div>
 			</div>
 		</div>
-	</section>
+</div>
+</section>

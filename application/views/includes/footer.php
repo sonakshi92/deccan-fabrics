@@ -1,23 +1,24 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; <?php echo date('Y');?> <a href="">Deccan-Fabrics.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0-rc
-    </div>
-  </footer>
+	<strong>Copyright &copy; <?php echo date('Y');?> <a href="">Deccan-Fabrics.io</a>.</strong>
+	All rights reserved.
+	<div class="float-right d-none d-sm-inline-block">
+		<b>Version</b> 3.2.0-rc
+	</div>
+</footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+	<!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 </div>
 
 
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+	$.widget.bridge('uibutton', $.ui.button)
+
 </script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url(); ?>assets/theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -34,11 +35,14 @@
 <script src="<?php echo base_url(); ?>assets/theme/plugins/moment/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/theme/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>assets/theme/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script
+	src="<?php echo base_url(); ?>assets/theme/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
+</script>
 <!-- Summernote -->
 <script src="<?php echo base_url(); ?>assets/theme/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="<?php echo base_url(); ?>assets/theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js">
+</script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/theme/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->

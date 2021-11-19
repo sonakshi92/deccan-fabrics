@@ -19,16 +19,25 @@ class Stock extends CI_Controller {
 
     public function balance()
 	{
-		$data['title'] = "Stock balance | Deccan Fabrics";
+		$data['title'] = "Stock Balance | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('stock/balance');
 		$this->load->view('includes/footer');
     }
 
+	public function missing()
+	{
+		$data['title'] = "Missing Stock | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/missing');
+		$this->load->view('includes/footer');
+    }
+	
 	public function vendor()
 	{
-		$data['title'] = "Goods Payments | Deccan Fabrics";
+		$data['title'] = "Vendor | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('stock/vendor');
@@ -37,7 +46,7 @@ class Stock extends CI_Controller {
 
 	public function itemMaster()
 	{
-		$data['title'] = "Goods Payments | Deccan Fabrics";
+		$data['title'] = "Item Master | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('stock/itemMaster');
@@ -46,12 +55,22 @@ class Stock extends CI_Controller {
 
 	public function inward()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "purchases | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('stock/purchases');
 		$this->load->view('includes/footer');
     }
+	
+	public function purchaseDetails()
+	{
+		$data['title'] = "Purchase Details | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/viewPurchases');
+		$this->load->view('includes/footer');
+    }
+
 
     public function outward()
 	{
@@ -59,6 +78,15 @@ class Stock extends CI_Controller {
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('stock/outward');
+		$this->load->view('includes/footer');
+    }
+
+	public function outwardDetails()
+	{
+		$data['title'] = "Outwards Details | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('stock/viewoutwards');
 		$this->load->view('includes/footer');
     }
 
@@ -70,12 +98,14 @@ class Stock extends CI_Controller {
 		$this->load->view('stock/payments');
 		$this->load->view('includes/footer');
     }
-	public function purchaseDetails()
+
+	
+	public function yearEnd()
 	{
-		$data['title'] = "Purchase Details | Deccan Fabrics";
+		$data['title'] = "Year End | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('stock/viewPurchases');
+		$this->load->view('stock/yearEnd');
 		$this->load->view('includes/footer');
     }
 }

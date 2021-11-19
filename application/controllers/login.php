@@ -45,23 +45,40 @@ class Login extends CI_Controller {
 		}
     }
 
-	public function home()
+	public function dayopen()
 	{
-		$data['title'] = "Home | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('home');
-		$this->load->view('includes/footer');
+		redirect('login/dashboard');
     }
 
-	
+	public function dayclose()
+	{
+		redirect('login/logout');
+    }
 
 	public function dashboard()
 	{
-		$data['title'] = "dashboard | Deccan Fabrics";
+		$data['title'] = "Dashboard | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('dashboard');
+		$this->load->view('includes/footer');
+    }
+
+	public function backup()
+	{
+		$data['title'] = "Backup | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('backup');
+		$this->load->view('includes/footer');
+    }
+
+	public function investment()
+	{
+		$data['title'] = "Investment | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('investment');
 		$this->load->view('includes/footer');
     }
 

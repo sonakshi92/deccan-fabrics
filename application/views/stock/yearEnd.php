@@ -24,46 +24,39 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<div class="form-group">
-										<label>Date:</label>
-										<input type="date" class="form-control">
-									</div>
-								</div>
-                                <div class="col-md-4">
-									<div class="form-group">
-										<label>Name:</label>
+										<label>Stock No.:</label>
 										<input type="text" class="form-control">
 									</div>
 								</div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
 									<div class="form-group">
-										<label>Amount:</label>
+										<label>Current Qty No.:</label>
 										<input type="text" class="form-control">
 									</div>
 								</div>
+
 								<table id="example2" class="table table-bordered table-hover table-striped">
 									<thead class="table-dark">
 										<tr>
-											<th>Date</th>
-											<th>Name</th>
-											<th>Amount</th>
+											<th>Brand</th>
+											<th>Stock No</th>
+											<th>Current Qty</th>
+											<th>System Qty</th>
+											<th>Retail Price</th>
+											<th>Purchase Price</th>
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>10/10/2020</td>
-											<td>ABC</td>
-											<td>10,00,000</td>
-											<td><i class="fas fa-edit" style="color:blue"></i>
-												<i class="fas fa-trash" style="color:red"></i>
-											</td>
-										</tr>
-                                        <tr>
-											<td>10/10/2020</td>
-											<td>XYZ</td>
-											<td>8,00,000</td>
+											<td>Raymond</td>
+											<td>swewsd1000</td>
+											<td>10</td>
+											<td>10</td>
+											<td>1000</td>
+											<td>800</td>
 											<td><i class="fas fa-edit" style="color:blue"></i>
 												<i class="fas fa-trash" style="color:red"></i>
 											</td>
@@ -71,7 +64,8 @@
 									</tbody>
 								</table>
 								<div>
-									<h4>Total: 18,00,000</h4>
+									<h4>Total Balance according to Retail Price: 10000</h4>
+									<h4>Total Balance according to Purchase Price: 8000</h4>
 								</div>
 
 							</div>

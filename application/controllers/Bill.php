@@ -10,17 +10,7 @@ class Bill extends CI_Controller {
 
     public function index()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('bills/billing');
-		$this->load->view('includes/footer');
-    }
-
-
-    public function billing()
-	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "New billing | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('bills/billing');
@@ -29,7 +19,7 @@ class Bill extends CI_Controller {
 
 	public function exchange()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Exchange | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('bills/exchange');
@@ -38,16 +28,16 @@ class Bill extends CI_Controller {
 
 	public function void()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Void | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
-		$this->load->view('bills/exchange');
+		$this->load->view('bills/void');
 		$this->load->view('includes/footer');
     }
 
 	public function return()
 	{
-		$data['title'] = "billing | Deccan Fabrics";
+		$data['title'] = "Return via Stock | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('bills/return');

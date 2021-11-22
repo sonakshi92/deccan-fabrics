@@ -24,7 +24,7 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<div class="form-group">
 										<label>Date:</label>
 										<input type="date" class="form-control">
@@ -36,10 +36,15 @@
 										<input type="text" class="form-control">
 									</div>
 								</div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
 									<div class="form-group">
 										<label>Amount:</label>
 										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<button class="btn btn-primary fa fa-plus"> ADD</button>
 									</div>
 								</div>
 								<table id="example2" class="table table-bordered table-hover table-striped">
@@ -75,7 +80,6 @@
 								</div>
 
 							</div>
-							<button class="btn btn-primary">Stock Verification</button>
 						</div>
 					</div>
 				</div>

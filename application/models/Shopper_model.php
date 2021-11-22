@@ -15,5 +15,10 @@ class Shopper_model extends CI_Model {
         }
         return false;
 	}
+
+    public function signup($reg){
+        $this->db->insert('authentication', $reg);
+        return $this->db->insert_id();
+    }
 }
 ?>

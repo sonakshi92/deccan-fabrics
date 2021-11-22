@@ -11,21 +11,20 @@
 					</div>
 					<div class="card-body">
 						<p class="login-box-msg">Sign in to start </p><br>
-
-						<form action="" method="post">
+						<?php echo form_open(''); ?>
 							<div class="input-group mb-3">
-								<input type="text" class="form-control" name="username" placeholder="User Name">
+								<input type="text" class="form-control" name="username" placeholder="User Name"  value="<?php echo set_value('username'); ?>">
 								<div class="input-group-append">
 									<div class="input-group-text">
 										<span class="fas fa-envelope"></span>
 									</div>
 								</div>
 							</div>
-							<span style="color:red" class="danger"><?php echo form_error('shoppername'); ?> </span>
+							<span style="color:red" class="danger"><?php echo form_error('username'); ?> </span>
 							<br>
 
 							<div class="input-group mb-3">
-								<input type="password" class="form-control" name="password" placeholder="Password"><br>
+								<input type="password" id="password" class="form-control" name="password" placeholder="Password"><br>
 								<div class="input-group-append">
 									<div class="input-group-text">
 										<span class="fas fa-lock"></span>
@@ -49,3 +48,13 @@
 		</div>
 		<!-- /.login-box -->
 	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#password').keydown(function() {
+				if (event.keyCode == 32) {
+					alert("No space bar allowed");
+					return false;
+					}
+			});
+		});
+	</script>

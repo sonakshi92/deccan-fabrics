@@ -6,6 +6,10 @@ class Employee extends CI_Controller {
     function __construct() {
         parent::__construct();
 		$this->load->helper('form');
+		if(!($this->session->autenticated || $this->session->check)){
+			$this->session->set_flashdata('message', 'Please Login First');
+			redirect('login');
+		   }
     }
 
     public function index()

@@ -6,6 +6,10 @@ class Account extends CI_Controller {
     function __construct() {
         parent::__construct();
 		$this->load->helper('form');
+		if(!($this->session->autenticated || $this->session->check)){
+			$this->session->set_flashdata('message', 'Please Login First');
+			redirect('login');
+		   }
     }
 
     public function index()
@@ -87,6 +91,15 @@ class Account extends CI_Controller {
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('accounts/payments');
+		$this->load->view('includes/footer');
+    }
+
+	public function investment()
+	{
+		$data['title'] = "Investment | Deccan Fabrics";
+		$this->load->view('includes/header', $data);
+		$this->load->view('includes/sidebar');
+		$this->load->view('accounts/investment');
 		$this->load->view('includes/footer');
     }
 }

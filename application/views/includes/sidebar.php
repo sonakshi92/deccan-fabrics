@@ -13,13 +13,16 @@
 				<a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
 			</li>
 			<li class="nav-item d-none d-sm-inline-block">
-				<a href="<?php echo base_url();?>login/dashboard" class="nav-link">Home</a>
+				<a href="<?php echo base_url();?>home/dashboard" class="nav-link">Dashboard</a>
 			</li>
 			<li class="nav-item d-none d-sm-inline-block">
 				<a href="#" class="nav-link"> Emergency Contacts</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
+			<li class="nav-item d-none d-sm-inline-block">
+				<a href="<?php echo base_url();?>home/signup" class="nav-link">SignUp</a>
+			</li>
 			<li class="nav-item d-none d-sm-inline-block">
 				<a href="<?php echo base_url();?>login/logout" class="nav-link">Logout</a>
 			</li>
@@ -55,56 +58,60 @@
 					<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 					<li class="nav-item">
-						<p class="nav-link"><i class="nav-icon fas fa-home"></i><?php echo anchor('login/dashboard', 'Dashboard')?>
-						</p>
-					</li>
-					<li class="nav-item">
 						<a href="#" class="nav-link">
-							<i class="nav-icon fas fa-calendar"></i>
-							<p>
-								Day Open / Close
-								<i class="right fas fa-angle-left"></i>
-							</p>
+							<i class="nav-icon fas fa-home"></i>
+							<p>HOME<i class="right fas fa-angle-left"></i></p>
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('login/dayopen', 'Day Open')?></p>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i> <?php echo anchor('home/dashboard', 'Dashboard')?></p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-warning"></i><?php echo anchor('login/dayclose', 'Day Close')?></p>
+								<p class="nav-link">
+									<i class="far fa-user nav-icon"></i> <?php echo anchor('home/dayclose', 'Profile')?></p>
 							</li>
 						</ul>
 					</li>
 					<li class="nav-item">
 						<a href="#" class="nav-link">
-							<i class="nav-icon fas fa-table"></i>
-							<p>
-								Bills
-								<i class="right fas fa-angle-left"></i>
-							</p>
+							<i class="nav-icon fas fa-calendar"></i> <p>Day Open / Close<i class="right fas fa-angle-left"></i></p>
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="nav-icon far fa-circle text-info"></i><?php echo anchor('bill', 'New Billing')?> </p>
+								<p class="nav-link"> <i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('home/dayopen', 'Day Open')?>
+								</p>
+							</li>
+							<li class="nav-item">
+								<p class="nav-link"> <i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('home/dayclose', 'Day Close')?>
+								</p>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link"> 
+							<i class="nav-icon fas fa-table"></i> <p> Bills	<i class="right fas fa-angle-left"></i></p>
+						</a>
+						<ul class="nav nav-treeview">
+							<li class="nav-item">
+								<p class="nav-link">
+									<i class="nav-icon far fa-circle text-info"></i><?php echo anchor('bill', 'New Billing')?> </p>
 								</a>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="nav-icon far fa-circle text-success"></i><?php echo anchor('bill/exchange', 'Exchange Billing')?>
+								<p class="nav-link">
+									<i class="nav-icon far fa-circle text-success"></i><?php echo anchor('bill/exchange', 'Exchange Billing')?>
 								</p>
 								</a>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="nav-icon far fa-circle text-warning"></i><?php echo anchor('bill/void', 'Void Billing')?></p>
+								<p class="nav-link">
+									<i class="nav-icon far fa-circle text-warning"></i><?php echo anchor('bill/void', 'Void Billing')?></p>
 								</a>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="nav-icon far fa-circle text-danger"></i><?php echo anchor('bill/return', 'Return via stock')?>
+								<p class="nav-link">
+									<i class="nav-icon far fa-circle text-danger"></i><?php echo anchor('bill/return', 'Return via stock')?>
 								</p>
 								</a>
 							</li>
@@ -121,23 +128,23 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/daily', 'Daily Sales Report')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/daily', 'Daily Sales Report')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/monthly', 'Monthly Sales Report')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/monthly', 'Monthly Sales Report')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/yearly', 'Yearly Report')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/yearly', 'Yearly Report')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/custom', 'Custom Report')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i><?php echo anchor('sales/custom', 'Custom Report')?>
 								</p>
 							</li>
 						</ul>
@@ -153,38 +160,43 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="nav-icon far fa-circle text-success"></i><?php echo anchor('account/cashbook', 'Cash Book')?>
+								<p class="nav-link">
+									<i class="nav-icon far fa-circle text-success"></i><?php echo anchor('account/cashbook', 'Cash Book')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-success"></i><?php echo anchor('account/monthlybook', 'Monthly Book')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-success"></i><?php echo anchor('account/monthlybook', 'Monthly Book')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-success"></i><?php echo anchor('account/yearlybook', 'Year Book')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-success"></i><?php echo anchor('account/yearlybook', 'Year Book')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-warning"></i><?php echo anchor('account/payments', 'Payment Details')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('account/payments', 'Payment Details')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-danger"></i><?php echo anchor('account/documents', 'Documents')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-danger"></i><?php echo anchor('account/documents', 'Documents')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-info"></i><?php echo anchor('account/bankdetails', 'View Bank Details')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i><?php echo anchor('account/bankdetails', 'View Bank Details')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-info"></i><?php echo anchor('account/addbank', 'Add Bank Details')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i><?php echo anchor('account/addbank', 'Add Bank Details')?>
+								</p>
+							</li>
+							<li class="nav-item">
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-info"></i><?php echo anchor('account/investment', 'Shop Investment')?>
 								</p>
 							</li>
 						</ul>
@@ -200,28 +212,28 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer', 'List of Customers')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer', 'List of Customers')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/add', 'Add Customer')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/add', 'Add Customer')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/request', 'Customer Request')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/request', 'Customer Request')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/viewreq', 'View Request')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/viewreq', 'View Request')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/sendemail', 'Send Email')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-success"></i><?php echo anchor('customer/sendemail', 'Send Email')?>
 								</p>
 							</li>
 						</ul>
@@ -235,18 +247,18 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee', 'List of Employees')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee', 'List of Employees')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee/add', 'Add Employee')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee/add', 'Add Employee')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee/salaries', 'Salaries')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee/salaries', 'Salaries')?>
 								</p>
 							</li>
 						</ul>
@@ -260,45 +272,45 @@
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/balance', 'Stock Balance')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/balance', 'Stock Balance')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/missing', 'Stock Missing')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/missing', 'Stock Missing')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/itemMaster', 'Item Master')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/itemMaster', 'Item Master')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/inward', 'Purchase')?></p>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/inward', 'Purchase')?></p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/purchaseDetails', 'View Purchases')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/purchaseDetails', 'View Purchases')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/outward', 'Outward')?></p>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/outward', 'Outward')?></p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/outwardDetails', 'View Outwards')?>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/outwardDetails', 'View Outwards')?>
 								</p>
 							</li>
 							<li class="nav-item">
-								<p class="nav-link"><i
-										class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/yearend', 'Year End')?></p>
+								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/yearend', 'Year End')?></p>
 							</li>
 						</ul>
 						<li class="nav-item">
-							<p class="nav-link"><i class="nav-icon fas fa-database"></i><?php echo anchor('login/backup', 'Backup')?>
+							<p class="nav-link"><i class="nav-icon fas fa-database"></i><?php echo anchor('home/backup', 'Backup')?>
 							</p>
 							<i class="fas fa-angle-left right"></i>
 						</li>

@@ -8,14 +8,13 @@ class Login extends CI_Controller {
 		$this->load->library('form_validation');
         $this->load->model('Shopper_model');
         $this->load->helper("security");
-        $this->load->helper('date');
     }
 	
 	public function index()
 	{
 	if( $this->session->autenticated){
 		$this->session->set_flashdata('message', 'Already Logged in');
-		redirect('login/dashboard');
+		redirect('home/dashboard');
 		}else{
 			$data['title'] = "Login | Deccan Fabrics";
 			$this->form_validation->set_rules('username', 'User Name', 'trim|required');
@@ -36,50 +35,14 @@ class Login extends CI_Controller {
 						'autenticated' => TRUE
 					);
 					$this->session->set_userdata($admindata);
-					redirect('login/dashboard');
+					$this->session->set_flashdata('message', 'Login is successfull');
+					redirect('home/dashboard');
 				}else{
 					$this->session->set_flashdata('message', 'Invalid email or password');
 					redirect('login');
 				}
 			}
 		}
-    }
-
-	public function dayopen()
-	{
-		redirect('login/dashboard');
-    }
-
-	public function dayclose()
-	{
-		redirect('login/logout');
-    }
-
-	public function dashboard()
-	{
-		$data['title'] = "Dashboard | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('dashboard');
-		$this->load->view('includes/footer');
-    }
-
-	public function backup()
-	{
-		$data['title'] = "Backup | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('backup');
-		$this->load->view('includes/footer');
-    }
-
-	public function investment()
-	{
-		$data['title'] = "Investment | Deccan Fabrics";
-		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
-		$this->load->view('investment');
-		$this->load->view('includes/footer');
     }
 
 	public function logout()

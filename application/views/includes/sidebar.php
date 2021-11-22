@@ -69,7 +69,7 @@
 							</li>
 							<li class="nav-item">
 								<p class="nav-link">
-									<i class="far fa-user nav-icon"></i> <?php echo anchor('home/dayclose', 'Profile')?></p>
+									<i class="far fa-user nav-icon"></i> <?php echo anchor('home/profile', 'Profile')?></p>
 							</li>
 						</ul>
 					</li>

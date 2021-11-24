@@ -12,8 +12,12 @@
 						<li class="breadcrumb-item"><a href="#"><?php echo  explode('|',trim($title))[0]; ?></a></li>
 						<li class="breadcrumb-item active"><?php echo date('d/m/Y');?></li>
 					</ol>
+					<?php if( $this->session->flashdata('message')) { ?>
+                    <div class="alert alert-success">
+                        <?php echo $this->session->flashdata('message') ?>
+						<?php } ?>
+                    </div>
 				</div>
-			</div>
 		</div><!-- /.container-fluid -->
 	</section>
 
@@ -25,53 +29,64 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-4">
+									<?php echo form_open(''); ?>
 									<div class="form-group">
-										<label>Vendor Code </label>
-										<input type="text" class="form-control">
+										<label for="code">Vendor Code: </label>
+										<input type="text" class="form-control" id="code" name="code">
+										<span style="color:red" ><?php echo form_error('code'); ?> </span>
 									</div>
 								</div>
-								<div class="col-md-9">
+								<div class="col-md-8">
 									<div class="form-group">
-										<label>Vendor Name </label>
-										<input type="text" class="form-control">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label>Address </label>
-										<input type="text" class="form-control">
+										<label for="name">Vendor Name: </label>
+										<input type="text" id="name" name="name" class="form-control">
+										<span style="color:red"><?php echo form_error('name');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>State </label>
-										<input type="text" class="form-control">
+										<label for="address">Address: </label>
+										<input type="text" id="address" name="address" class="form-control">
+										<span style="color:red"><?php echo form_error('address');?></span>
+
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Phone </label>
-										<input type="text" class="form-control">
+										<label for="state">State: </label>
+										<input type="text" id="state" name="state" class="form-control">
+										<span style="color:red"><?php echo form_error('state');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>GST</label>
-										<input type="text" class="form-control">
+										<label for="phone">Phone: </label>
+										<input type="text" id="phone" name="phone" class="form-control">
+										<span style="color:red"><?php echo form_error('phone');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<label>Vendor Type </label>
-										<select name="type" class="form-control" id="">
+										<label for="gst">GST:</label>
+										<input type="text" id="gst" name="gst" class="form-control">
+										<span style="color:red"><?php echo form_error('gst');?></span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="type">Vendor Type: </label>
+										<select name="type" id="type" class="form-control" id="">
+											<option></option>
 											<option>Local</option>
 											<option>Other State</option>
 										</select>
+										<span style="color:red"><?php echo form_error('type');?></span>
 									</div>
 								</div>
 							</div>
 							<input type="submit" class="btn btn-primary" value="Add Vendor">
+						</form>
 						</div>
 					</div>
 				</div>

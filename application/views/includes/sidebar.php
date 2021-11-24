@@ -297,6 +297,11 @@
 							</li>
 							<li class="nav-item">
 								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/vendor', 'Add Vendor')?>
+								</p>
+							</li>
+							<li class="nav-item">
+								<p class="nav-link">
 									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/outward', 'Outward')?></p>
 							</li>
 							<li class="nav-item">

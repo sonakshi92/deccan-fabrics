@@ -62,7 +62,7 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="phone">Phone: </label>
-										<input type="text" id="phone" name="phone" class="form-control">
+										<input type="number" id="phone" name="phone" class="form-control">
 										<span style="color:red"><?php echo form_error('phone');?></span>
 									</div>
 								</div>

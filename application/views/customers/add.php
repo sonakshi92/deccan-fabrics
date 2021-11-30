@@ -12,6 +12,7 @@
 						<li class="breadcrumb-item"><a href="#"><?php echo  explode('|',trim($title))[0]; ?></a></li>
 						<li class="breadcrumb-item active"><?php echo date('d/m/Y');?></li>
 					</ol>
+					<h1><span id="success"></span></h1>
 					<?php if( $this->session->flashdata('message')) { ?>
                     <div id="success" class="alert alert-success">
                         <?php echo $this->session->flashdata('message') ?>
@@ -26,7 +27,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
-					<form id="customerData">
+					<form id="customerData" method="post">
 					<div class="card">
 						<div class="card-header">
 							<div  class="row">
@@ -54,7 +55,8 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<label> Phone </label>
-										<input type="tel" class="form-control" name="phone" size="40" pattern="[7-9]{1}[0-9]{9}" title="Phone number should start with 7, 8 or 9 and should be valid"  placeholder="(999) 999-9999">
+										<input type="tel" class="form-control" name="phone" size="40" title="Phone number should start with 7, 8 or 9 and should be valid"  placeholder="(999) 999-9999">
+										<!-- <input type="tel" class="form-control" name="phone" size="40" pattern="[7-9]{1}[0-9]{9}" title="Phone number should start with 7, 8 or 9 and should be valid"  placeholder="(999) 999-9999"> -->
 										<span style="color:red"><?php echo form_error('phone');?></span>
 									</div>
 								</div>
@@ -114,7 +116,7 @@
 									</div>
 								</div>
 							</div>
-							<button type="submit" id="addCust" class="form btn btn-primary fa fa-plus"> Add </button>
+							<button type="submit" name="submit" id="addCust" class="form btn btn-primary fa fa-plus"> Add </button>
 						</div>
 					</div>
 				</form>
@@ -124,62 +126,75 @@
 </div>
 <script>
 $(document).ready(function(){
- $('#country').change(function(){
-  var country_id = $('#country').val();
-  if(country_id != '')
-  {
-   $.ajax({
-    url:"<?php echo base_url(); ?>customer/fetch_state",
-    method:"POST",
-    data:{country_id:country_id},
-    success:function(data)
-    {
-     $('#state').html(data);
-     $('#city').html('<option value="">Select City</option>');
-    }
-   });
-  }
-  else
-  {
-   $('#state').html('<option value="">Select State</option>');
-   $('#city').html('<option value="">Select City</option>');
-  }
- });
+	$('#country').change(function(){
+	var country_id = $('#country').val();
+	if(country_id != '')
+	{
+		$.ajax({
+			url:"<?php echo base_url(); ?>customer/fetch_state",
+			method:"POST",
+			data:{country_id:country_id},
+			success:function(data)
+			{
+			$('#state').html(data);
+			$('#city').html('<option value="">Select City</option>');
+			}
+		});
+	}else{
+		$('#state').html('<option value="">Select State</option>');
+		$('#city').html('<option value="">Select City</option>');
+		}
+	});
 
- $('#state').change(function(){
-  var state_id = $('#state').val();
-  if(state_id != '')
-  {
-   $.ajax({
-    url:"<?php echo base_url(); ?>customer/fetch_city",
-    method:"POST",
-    data:{state_id:state_id},
-    success:function(data)
-    {
-     $('#city').html(data);
-    }
-   });
-  }
-  else
-  {
-   $('#city').html('<option value="">Select City</option>');
-  }
- });
- 
- $('#addCust').click(function(){
-	//  var fname = $('#fname').val();
-	$.ajax({
-		url:"<?php echo base_url();?>customer/add",
-		type:"POST",
-		data:$('#customerData input').serialize(),
-		success: function (result){
-			alert("asas");
-			if(result == 'success'){
-			$('#success').html('Customer added successfully !');
-		}
-		}
-	})
-	 
- })
+	$('#state').change(function(){
+	var state_id = $('#state').val();
+	if(state_id != '')
+	{
+		$.ajax({
+			url:"<?php echo base_url(); ?>customer/fetch_city",
+			method:"POST",
+			data:{state_id:state_id},
+			success:function(data)
+			{
+			$('#city').html(data);
+			}
+		});
+	}else{
+		$('#city').html('<option value="">Select City</option>');
+	}
+	});
+
+
+	//form Validation
+	// $('form#customerData').validate();
+		// $('#customerData').validate({
+		// 	submitHandler: function(form) {
+		// 		alert($('form').serialize());
+		// 		return false;
+		// 	}
+		// });
+
+	//insert customer Data to DB
+	 $("form#customerData").submit(function(event){
+		event.preventDefault();
+		var formdata = $('#customerData').serialize();
+
+		$.ajax({
+			type: 'POST',
+			url: '<?php echo base_url();?>customer/addToDb',
+			data: formdata,
+			success: function(resp){
+				alert(resp);
+				if(resp == 'success'){
+					$('#customerData').trigger("reset");
+					$('#success').html('Customer added successfully !');
+				}
+				else{
+					$('').html(resp);
+				}
+			}
+		});
+	 });
+	
 });
 </script>

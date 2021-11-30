@@ -32,39 +32,13 @@ class Customer extends CI_Controller {
 		//$data['allAdmin'] = $this->Shopper_model->viewAdmins();
 		$data['country'] = $this->Shopper_model->fetch_country();
 	//	print_r($data);exit;
-		// $this->form_validation->set_rules('fname', 'First Name', 'trim|required|max_length[50]');
-		// $this->form_validation->set_rules('lname', 'Last Name', 'trim|required|max_length[50]');
-		// $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		// $this->form_validation->set_rules('phone','Phone No', 'required|exact_length[10]');
-		// $this->form_validation->set_rules('birthday', 'Date of Birth', 'required');
-		// $this->form_validation->set_rules('address', 'Address', 'required');
-		// $this->form_validation->set_rules('landmark', 'Landmark', 'trim|required');
-		// $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-		// if($this->form_validation->run() == FALSE){
+		
 			$this->load->view('includes/header', $data);
 			$this->load->view('includes/sidebar');
 			$this->load->view('customers/add');
 			$this->load->view('includes/footer');
-		// } else{
-			$custData = array(
-				'fname' => $this->input->post('fname', TRUE),
-				'lname' => $this->input->post('lname', TRUE),
-				'email' => $this->input->post('email', TRUE),
-				'phone' => $this->input->post('phone', TRUE),
-				'birthday' => $this->input->post('birthday'),
-				'address' => $this->input->post('address', TRUE),
-				'landmark' => $this->input->post('landmark', True),
-				'city' => $this->input->post('city', True),
-				'state' => $this->input->post('state', True),
-				'country' => $this->input->post('country', True),
-				'created_at' => date('Y-m-d H:i:s', time()),
-				);
-				//print_r($custData); exit;
-				// $this->Shopper_model->addCust($custData);
-				// $this->session->set_flashdata('message', 'Customer Added');
-				// redirect('home/dashboard');
 		// }
-		
+			
     }
 
 	public function edit()
@@ -76,6 +50,7 @@ class Customer extends CI_Controller {
 		$this->load->view('includes/footer');
     }
 
+	
 	public function requirement()
 	{
 		$data['title'] = "Customers Requirement | Deccan Fabrics";
@@ -85,24 +60,55 @@ class Customer extends CI_Controller {
 		$this->load->view('includes/footer');
     }
 
+	function addToDb()
+	{
+		$this->form_validation->set_rules('fname', 'First Name', 'trim|required|max_length[50]');
+		$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|max_length[50]');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+		$this->form_validation->set_rules('phone','Phone No', 'required');
+		$this->form_validation->set_rules('birthday', 'Date of Birth', 'required');
+		$this->form_validation->set_rules('address', 'Address', 'required');
+		$this->form_validation->set_rules('landmark', 'Landmark', 'trim|required');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		if($this->form_validation->run() == FALSE){
+			echo validation_errors();
+		}else{
+		$custData = array(
+			'fname' => $this->input->post('fname', TRUE),
+			'lname' => $this->input->post('lname', TRUE),
+			'email' => $this->input->post('email', TRUE),
+			'phone' => $this->input->post('phone', TRUE),
+			'birthday' => $this->input->post('birthday'),
+			'address' => $this->input->post('address', TRUE),
+			'landmark' => $this->input->post('landmark', True),
+			'city' => $this->input->post('city', True),
+			'state' => $this->input->post('state', True),
+			'country' => $this->input->post('country', True),
+			'created_at' => date('Y-m-d H:i:s', time()),
+			);
+			$insert = $this->Shopper_model->addCust($custData);
+
+			if($insert == TRUE){
+				echo 'success';
+			}else{
+				echo 'failed'; 
+			}
+		}
+	}
 	function fetch_state()
 	{
-	if($this->input->post('country_id'))
-	{
-	echo $this->Shopper_model->fetch_state($this->input->post('country_id'));
-	}
+		if($this->input->post('country_id')){
+			echo $this->Shopper_model->fetch_state($this->input->post('country_id'));
+		}
 	}
 
 	function fetch_city()
 	{
-	if($this->input->post('state_id'))
-	{
-	echo $this->Shopper_model->fetch_city($this->input->post('state_id'));
-	}
+		if($this->input->post('state_id')){
+			echo $this->Shopper_model->fetch_city($this->input->post('state_id'));
+		}
 	}
 
-	function insertData(){
-		extract($_POST);
-	}
+	
 }
 ?>

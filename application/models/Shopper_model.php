@@ -45,6 +45,7 @@ class Shopper_model extends CI_Model {
 
     public function addCust($reg){
         $this->db->insert('customers', $reg);
+        return true;
       //  return $this->db->insert_id();
     }
 

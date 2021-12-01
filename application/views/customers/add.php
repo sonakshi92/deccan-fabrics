@@ -12,7 +12,7 @@
 						<li class="breadcrumb-item"><a href="#"><?php echo  explode('|',trim($title))[0]; ?></a></li>
 						<li class="breadcrumb-item active"><?php echo date('d/m/Y');?></li>
 					</ol>
-					<h1><span id="success"></span></h1>
+					<span class="alert alert-success" id="success"></span>
 					<?php if( $this->session->flashdata('message')) { ?>
                     <div id="success" class="alert alert-success">
                         <?php echo $this->session->flashdata('message') ?>
@@ -29,9 +29,11 @@
 				<div class="col-12">
 					<form id="customerData" method="post">
 					<div class="card">
+					<span class="alert alert-danger" id="error"></span>
 						<div class="card-header">
 							<div  class="row">
 								<div class="col-md-6">
+
 									<div class="form-group">
 										<label for="name">First Name</label>
 										<input type="text" class="form-control" id="fname" name="fname" size="40" placeholder="First Name">
@@ -93,7 +95,6 @@
 										echo '<option value="'.$row->id.'">'.$row->name.'</option>';
 										}
 										?>
-										<span style="color:red"><?php echo form_error('country');?></span>
 									</select>
 									</div>
 								</div>
@@ -103,7 +104,6 @@
 									<select name="state" id="state" class="form-control input-lg">
 										<option value="36">Telangana</option>
 									</select>
-									<span style="color:red"><?php echo form_error('state');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
@@ -112,7 +112,6 @@
 									<select name="city" id="city" class="form-control input-lg">
 										<option value="4460">Hyderabad</option>
 									</select>
-									<span style="color:red"><?php echo form_error('city');?></span>
 									</div>
 								</div>
 							</div>
@@ -126,6 +125,8 @@
 </div>
 <script>
 $(document).ready(function(){
+	$('#success').css('display','none');
+	$('#error').css('display','none');
 	$('#country').change(function(){
 	var country_id = $('#country').val();
 	if(country_id != '')
@@ -166,7 +167,7 @@ $(document).ready(function(){
 
 
 	//form Validation
-	// $('form#customerData').validate();
+	// $('#customerData').validate();
 		// $('#customerData').validate({
 		// 	submitHandler: function(form) {
 		// 		alert($('form').serialize());
@@ -184,13 +185,18 @@ $(document).ready(function(){
 			url: '<?php echo base_url();?>customer/addToDb',
 			data: formdata,
 			success: function(resp){
-				alert(resp);
+				//alert(resp);
 				if(resp == 'success'){
 					$('#customerData').trigger("reset");
+					$('#error').css('display','none');
+					$('#success').css('display','block');
 					$('#success').html('Customer added successfully !');
+				//	location.reload();
 				}
 				else{
-					$('').html(resp);
+					$('#error').css('display','block');
+					$('#error').html(resp);
+					$('#success').css('display','none');
 				}
 			}
 		});

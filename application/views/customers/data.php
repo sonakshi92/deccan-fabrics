@@ -35,7 +35,7 @@
 							<div class="col-md-12">
 								<div class="card-body">
 									<table id="example2" class="table table-striped table-bordered table-hover">
-										<thead>
+										<thead class="table table-dark">
 											<tr>
 												<th> Customer Name </th>
 												<th> Phone </th>
@@ -46,9 +46,10 @@
 											</tr>
 										</thead>
 										<tbody>
+											<?php foreach($allCustomer as $row): ?>
 											<tr>
-												<td> name1 </td>
-												<td> 9876543210 </td>
+												<td> <?php echo $row->fname. " ". $row->lname; ?> </td>
+												<td> <?php echo $row->phone; ?> </td>
 												<td> 30000 </td>
 												<td> 100 </td>
 												<td> Signature </td>
@@ -58,30 +59,7 @@
 													<button class="form btn btn-sm btn-danger fa fa-trash"> </button>
 												</td>
 											</tr>
-											<tr>
-												<td> name2 </td>
-												<td> 9876443202 </td>
-												<td> 15000 </td>
-												<td> 1000 </td>
-												<td> Previlege </td>
-												<td>
-													<button class="form btn btn-sm btn-info fa fa-envelope"> </button>
-													<button class="form btn btn-sm btn-primary fa fa-pencil"> </button>
-													<button class="form btn btn-sm btn-danger fa fa-trash"> </button>
-												</td>
-											</tr>
-											<tr>
-												<td> name3 </td>
-												<td> 9876553202 </td>
-												<td> 3000 </td>
-												<td> 100 </td>
-												<td> Prestige </td>
-												<td>
-													<button class="form btn btn-sm btn-info fa fa-envelope"> </button>
-													<button class="form btn btn-sm btn-primary fa fa-pencil"> </button>
-													<button class="form btn btn-sm btn-danger fa fa-trash"> </button>
-												</td>
-											</tr>
+											<?php endforeach; ?>
 										</tbody>
 									</table>
 								</div>

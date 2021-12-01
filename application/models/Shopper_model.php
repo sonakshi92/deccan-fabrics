@@ -84,5 +84,19 @@ class Shopper_model extends CI_Model {
     }
     return $output;
     }
+
+    //View all Details
+    function allDetails($data, $tableName, $where){
+        $getDetails = $this->db->select($data)
+                          ->from($tableName)
+                          ->where($where)
+                          ->get();
+        return $getDetails->result();
+    }
+
+    public function insertAll($tableName, $data){
+        $insert = $this->db->insert($tableName, $data);
+        return $this->db->insert_id();
+    }
 }
 ?>

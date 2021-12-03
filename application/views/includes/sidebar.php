@@ -50,7 +50,7 @@
 					<a href="#" class="d-block"> Raymond | Jockey </a>
 				</div>
 			</div>
-
+			<?php $uri = $this->uri->segment(1); //echo $uri;exit; ?>
 
 			<!-- Sidebar Menu -->
 			<nav class="mt-2">
@@ -58,9 +58,9 @@
 					<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 					<li class="nav-item">
-						<a href="#" class="nav-link">
+						<a href="#" class="nav-link <?php if($uri=='home'){ echo "active";}?>">
 							<i class="nav-icon fas fa-home"></i>
-							<p>HOME<i class="right fas fa-angle-left"></i></p>
+							<p>HOME<i class="right fas fa-angle-left "></i></p>
 						</a>
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
@@ -89,7 +89,7 @@
 						</ul>
 					</li>
 					<li class="nav-item">
-						<a href="#" class="nav-link"> 
+						<a href="#" class="nav-link <?php if($uri=='bill'){ echo "active";}?>"> 
 							<i class="nav-icon fas fa-table"></i> <p> Bills	<i class="right fas fa-angle-left"></i></p>
 						</a>
 						<ul class="nav nav-treeview">
@@ -119,7 +119,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a href="#" class="nav-link">
+						<a href="#" class="nav-link <?php if($uri=='sales'){ echo "active";}?>">
 							<i class="nav-icon fas fa-chart-bar"></i>
 							<p>
 								Sales Reports
@@ -151,7 +151,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a href="#" class="nav-link">
+						<a href="#" class="nav-link <?php if($uri=='account'){ echo "active";}?>">
 							<i class="nav-icon fas fa-rupee"></i>
 							<p>
 								Accounts
@@ -203,7 +203,7 @@
 					</li>
 
 					<li class="nav-item">
-						<a href="#" class="nav-link">
+						<a href="#" class="nav-link <?php if($uri=='customer'){ echo "active";}?>">
 							<i class="nav-icon fas fa-users"></i>
 							<p>
 								Customers
@@ -238,7 +238,7 @@
 							</li>
 						</ul>
 					<li class="nav-item">
-						<a href="#" class="nav-link">
+						<a href="#" class="nav-link <?php if($uri=='employee'){ echo "active";}?>">
 							<i class="nav-icon fas fa-user"></i>
 							<p>
 								Employees
@@ -248,7 +248,7 @@
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
 								<p class="nav-link">
-									<i class="far fa-circle nav-icon text-warning"></i><?php echo anchor('employee', 'List of Employees')?>
+									<i class="nav-icon far fa-circle text-warning"></i><?php echo anchor('employee', 'List of Employees')?>
 								</p>
 							</li>
 							<li class="nav-item">
@@ -263,7 +263,7 @@
 							</li>
 						</ul>
 					<li class="nav-item">
-						<a href="#" class="nav-link">
+						<a href="#" class="nav-link <?php if($uri=='stock'){ echo "active";}?>">
 							<i class="nav-icon fas fa-boxes"></i>
 							<p>
 								Stock

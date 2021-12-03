@@ -36,50 +36,49 @@
 
 									<div class="form-group">
 										<label for="name">First Name</label>
-										<input type="text" class="form-control" id="fname" name="fname" size="40" placeholder="First Name">
+										<input type="text" class="form-control" id="fname" name="fname" size="40" placeholder="First Name" required>
 										<span style="color:red"><?php echo form_error('fname');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="lname">Last Name</label>
-										<input type="text" class="form-control" id="lname" name="lname" size="40" placeholder="Last Name">
+										<input type="text" class="form-control" id="lname" name="lname" size="40" placeholder="Last Name" required>
 										<span style="color:red"><?php echo form_error('lname');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label> Email </label>
-										<input type="email" class="form-control" name="email" size="40" placeholder="Email">
+										<input type="email" class="form-control" name="email" size="40" placeholder="Email" required>
 										<span style="color:red"><?php echo form_error('email');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label> Phone </label>
-										<input type="tel" class="form-control" name="phone" size="40" title="Phone number should start with 7, 8 or 9 and should be valid"  placeholder="(999) 999-9999">
-										<!-- <input type="tel" class="form-control" name="phone" size="40" pattern="[7-9]{1}[0-9]{9}" title="Phone number should start with 7, 8 or 9 and should be valid"  placeholder="(999) 999-9999"> -->
+										<input type="tel" class="form-control" name="phone" size="40" pattern="[6-9]{1}[0-9]{9}" title="Phone number should start with 6, 7, 8 or 9 and should be valid"  placeholder="(999) 999-9999" required>
 										<span style="color:red"><?php echo form_error('phone');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="birthday">Date Of Birth</label>
-										<input type="date" class="form-control" id="birthday" name="birthday" size="40">
+										<input type="date" class="form-control" id="birthday" name="birthday" size="40" required>
 										<span style="color:red"><?php echo form_error('birthday');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="address">Address</label>
-										<input type="text" class="form-control" id="address" name="address" size="40" placeholder="Address">
+										<input type="text" class="form-control" id="address" name="address" size="40" placeholder="Address" required>
 										<span style="color:red"><?php echo form_error('address');?></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="landmark">Landmark</label>
-										<input type="text" class="form-control" id="landmark" name="landmark" size="40" placeholder="Landmark">
+										<input type="text" class="form-control" id="landmark" name="landmark" size="40" placeholder="Landmark" required>
 										<span style="color:red"><?php echo form_error('landmark');?></span>
 									</div>
 								</div>
@@ -166,19 +165,11 @@ $(document).ready(function(){
 	});
 
 
-	//form Validation
-	// $('#customerData').validate();
-		// $('#customerData').validate({
-		// 	submitHandler: function(form) {
-		// 		alert($('form').serialize());
-		// 		return false;
-		// 	}
-		// });
-
 	//insert customer Data to DB
 	 $("form#customerData").submit(function(event){
 		event.preventDefault();
 		var formdata = $('#customerData').serialize();
+		$('#addCust').html(' Please wait.....');
 
 		$.ajax({
 			type: 'POST',
@@ -187,6 +178,7 @@ $(document).ready(function(){
 			success: function(resp){
 				//alert(resp);
 				if(resp == 'success'){
+					$('#addCust').html(' Add New Customer');
 					$('#customerData').trigger("reset");
 					$('#error').css('display','none');
 					$('#success').css('display','block');
@@ -194,6 +186,7 @@ $(document).ready(function(){
 				//	location.reload();
 				}
 				else{
+					$('#addCust').html(' Add');
 					$('#error').css('display','block');
 					$('#error').html(resp);
 					$('#success').css('display','none');

@@ -18,12 +18,27 @@ class Stock extends CI_Controller {
 
     public function index()
 	{
-		$data['title'] = "Stocks | Deccan Fabrics";
+		$data['title'] = "Stocks Details | Deccan Fabrics";
+		$this->form_validation->set_rules('brand', 'Brand', 'is_unique[brand.name]|max_length[20]');
+		$this->form_validation->set_rules('category', 'Category', 'is_unique[categories.name]');
+
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/sidebar');
 		$this->load->view('stock/index');
 		$this->load->view('includes/footer');
     }
+
+	function addbrand(){
+		$this->form_validation->set_rules('brand', 'Brand', 'is_unique[brand.name]|max_length[20]');
+		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+		if($this->form_validation->run() == FALSE){
+			echo validation_errors();
+		}else{
+			$addb = array('brand' => $this->input->post('brand_name', TRUE));
+			//print_r($brand); exit;
+			$this->Shopper_model->insertAll('brand', $addb);
+		}
+	}
 
     public function balance()
 	{

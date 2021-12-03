@@ -66,8 +66,8 @@ class Customer extends CI_Controller {
 	{
 		$this->form_validation->set_rules('fname', 'First Name', 'trim|required|max_length[50]');
 		$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|max_length[50]');
-		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('phone','Phone No', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[customers.email]');
+		$this->form_validation->set_rules('phone','Phone No', 'required|is_unique[customers.phone]');
 		$this->form_validation->set_rules('birthday', 'Date of Birth', 'required');
 		$this->form_validation->set_rules('address', 'Address', 'required');
 		$this->form_validation->set_rules('landmark', 'Landmark', 'trim|required');
@@ -89,6 +89,7 @@ class Customer extends CI_Controller {
 		// echo json_encode($array);
 
 		}else{
+
 		$custData = array(
 			'fname' => $this->input->post('fname', TRUE),
 			'lname' => $this->input->post('lname', TRUE),
@@ -102,6 +103,8 @@ class Customer extends CI_Controller {
 			'country' => $this->input->post('country', True),
 			'created_at' => date('Y-m-d H:i:s', time()),
 			);
+			sleep(3);
+
 			$insert = $this->Shopper_model->addCust($custData);
 
 			if($insert == TRUE){

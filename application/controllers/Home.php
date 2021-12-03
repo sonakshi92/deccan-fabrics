@@ -57,7 +57,7 @@ class Home extends CI_Controller {
 
 	public function dayclose()
 	{
-		redirect('home/logout');
+		redirect('login/logout');
     }
 
 	public function dashboard()

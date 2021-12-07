@@ -16,7 +16,7 @@ class Sales extends CI_Controller {
 	{
 		$data['title'] = "Daily Sales | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('sales/daily');
 		$this->load->view('includes/footer');
     }
@@ -25,7 +25,7 @@ class Sales extends CI_Controller {
 	{
 		$data['title'] = "Monthly sales | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('sales/monthly');
 		$this->load->view('includes/footer');
     }
@@ -34,7 +34,7 @@ class Sales extends CI_Controller {
 	{
 		$data['title'] = "Yearly Sales | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('sales/yearly');
 		$this->load->view('includes/footer');
     }
@@ -43,7 +43,7 @@ class Sales extends CI_Controller {
 	{
 		$data['title'] = "Custom Report | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('sales/custom');
 		$this->load->view('includes/footer');
     }

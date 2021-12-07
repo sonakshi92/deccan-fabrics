@@ -19,32 +19,40 @@ class Stock extends CI_Controller {
     public function index()
 	{
 		$data['title'] = "Stocks Details | Deccan Fabrics";
-		$this->form_validation->set_rules('brand', 'Brand', 'is_unique[brand.name]|max_length[20]');
-		$this->form_validation->set_rules('category', 'Category', 'is_unique[categories.name]');
-
+		$data['brand'] = $this->Shopper_model->fetch_brand();
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/index');
 		$this->load->view('includes/footer');
     }
 
-	function addbrand(){
-		$this->form_validation->set_rules('brand', 'Brand', 'is_unique[brand.name]|max_length[20]');
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+	public function addbrand(){
+		$this->form_validation->set_rules('brand_name', 'Brand', 'is_unique[brands.name]|max_length[20]');
+		// $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		if($this->form_validation->run() == FALSE){
 			echo validation_errors();
 		}else{
-			$addb = array('brand' => $this->input->post('brand_name', TRUE));
-			//print_r($brand); exit;
-			$this->Shopper_model->insertAll('brand', $addb);
+			$add_brand = array('name' => $this->input->post('brand_name', TRUE));
+			// print_r($addb); exit;
+			$add = $this->Shopper_model->insertAll('brands', $add_brand);
+			if($add == TRUE){
+				echo 'success';
+			}else{
+				echo 'failed'; 
+			}
 		}
 	}
+
+	public function addCat(){
+		$this->form_validation->set_rules('');
+	}
+	
 
     public function balance()
 	{
 		$data['title'] = "Stock Balance | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/balance');
 		$this->load->view('includes/footer');
     }
@@ -53,7 +61,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "Missing Stock | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/missing');
 		$this->load->view('includes/footer');
     }
@@ -71,7 +79,7 @@ class Stock extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="error">','</div>');
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('includes/header', $data);
-			$this->load->view('includes/sidebar');
+			$this->load->view('includes/navbar');
 			$this->load->view('stock/vendor');
 			$this->load->view('includes/footer');
 		}else{
@@ -95,7 +103,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "Item Master | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/itemMaster');
 		$this->load->view('includes/footer');
     }
@@ -104,7 +112,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "purchases | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/purchases');
 		$this->load->view('includes/footer');
     }
@@ -113,7 +121,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "Purchase Details | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/viewPurchases');
 		$this->load->view('includes/footer');
     }
@@ -123,7 +131,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "Goods Outward | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/outward');
 		$this->load->view('includes/footer');
     }
@@ -132,7 +140,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "Outwards Details | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/viewoutwards');
 		$this->load->view('includes/footer');
     }
@@ -141,7 +149,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "Goods Payments | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/payments');
 		$this->load->view('includes/footer');
     }
@@ -151,7 +159,7 @@ class Stock extends CI_Controller {
 	{
 		$data['title'] = "Year End | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('stock/yearEnd');
 		$this->load->view('includes/footer');
     }

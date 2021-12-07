@@ -16,7 +16,7 @@ class Employee extends CI_Controller {
 	{
 		$data['title'] = "Employees | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('employees/data');
 		$this->load->view('includes/footer');
     }
@@ -26,7 +26,7 @@ class Employee extends CI_Controller {
 	{
 		$data['title'] = "Add Customer | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('employees/add');
 		$this->load->view('includes/footer');
     }
@@ -35,7 +35,7 @@ class Employee extends CI_Controller {
 	{
 		$data['title'] = "Edit Customer | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('employees/edit');
 		$this->load->view('includes/footer');
     }
@@ -44,7 +44,7 @@ class Employee extends CI_Controller {
 	{
 		$data['title'] = "employees Requests | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('employees/salaries');
 		$this->load->view('includes/footer');
     }

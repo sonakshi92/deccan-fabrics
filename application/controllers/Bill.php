@@ -16,7 +16,7 @@ class Bill extends CI_Controller {
 	{
 		$data['title'] = "New billing | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('bills/billing');
 		$this->load->view('includes/footer');
     }
@@ -25,7 +25,7 @@ class Bill extends CI_Controller {
 	{
 		$data['title'] = "Exchange | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('bills/exchange');
 		$this->load->view('includes/footer');
     }
@@ -34,7 +34,7 @@ class Bill extends CI_Controller {
 	{
 		$data['title'] = "Void | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('bills/void');
 		$this->load->view('includes/footer');
     }
@@ -43,7 +43,7 @@ class Bill extends CI_Controller {
 	{
 		$data['title'] = "Return via Stock | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('bills/return');
 		$this->load->view('includes/footer');
     }

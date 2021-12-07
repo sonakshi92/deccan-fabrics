@@ -16,7 +16,7 @@ class Profile extends CI_Controller {
 	{
 		$data['title'] = "profile | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('profile');
 		$this->load->view('includes/footer');
     }
@@ -36,7 +36,7 @@ class Profile extends CI_Controller {
 	{
 		$data['title'] = "Tasks | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('calender/calendar');
 		$this->load->view('includes/footer');
     }
@@ -45,7 +45,7 @@ class Profile extends CI_Controller {
 	{
 		$data['title'] = "Tasks | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('calendar/todolist');
 		$this->load->view('includes/footer');
     }

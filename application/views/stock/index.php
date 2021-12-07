@@ -86,7 +86,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Category & Link to Brands </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -95,15 +95,23 @@
         <form id="category_form" onsubmit="return false">
           <div class="form-group">
             <label>Category Name</label>
-            <input type="text" class="form-control" name="category_name" id="category_name" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="text" class="form-control" name="category_name" id="category_name"  placeholder="Add New Category">
             <small id="cat_error" class="form-text text-muted"></small>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Link to Brand</label>
-            <select class="form-control" id="brand_id" name="brand_id">
-
-            </select>
-          </div>
+            <label for="exampleInputPassword1">Link to Brands</label>
+            <div class="col-sm-6">
+            <div class='form-group'>
+            <?php
+            foreach($brand as $row)
+            {?>
+                 <div class='form-check'>
+                  <input type='checkbox' class='form-check-input' value='<?php echo $row->id; ?>'  id='<?php echo $row->id; ?>' name='<?php echo $row->name;?>'>
+                  <label class='form-check-label' for='<?php echo $row->id; ?>'> <?php echo $row->name ?>
+                  </label>
+                  </div>
+           		<?php	} ?> 
+            </div>
+            
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -125,19 +133,20 @@
 				method : "POST",
 				data : $("#brand_form").serialize(),
 				success : function(data){
-					// if (data == "success") {
-					// 	$("#brand_name").removeClass("border-danger");
-					// 	$("#brand_error").html("<span class='text-success'>New Brand Added Successfully..!</span>");
-					// 	$("#brand_name").val("");
-					// 	fetch_brand();
-					// }else{
-						alert(data);
-					// }
-						
+					if (data == "success") {
+						$("#brand_name").removeClass("border-danger");
+						$("#brand_error").html("<span class='text-success'>New Brand Added Successfully..!</span>");
+						$("#brand_name").val("");
+						fetch_brand();
+					}else{
+						// alert(data);
+            $("#brand_name").addClass("border-danger");
+		      	$("#brand_error").html("<span class='text-danger'>" + data + "</span>");
+					}
 				}
 			})
 		}
-	})
+	  })
+    
   })
-  
 </script>

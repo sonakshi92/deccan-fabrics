@@ -19,10 +19,10 @@ class Customer extends CI_Controller {
     public function index()
 	{
 		$data['title'] = "Customers | Deccan Fabrics";
-		$data['allCustomer'] = $this->Shopper_model->allDetails('*','customers', array());
+		$data['allCustomer'] = $this->Shopper_model->getAllDetails('*','customers', array());
 		//print_r($data);exit;
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('customers/data');
 		$this->load->view('includes/footer');
     }
@@ -36,7 +36,7 @@ class Customer extends CI_Controller {
 	//	print_r($data);exit;
 		
 			$this->load->view('includes/header', $data);
-			$this->load->view('includes/sidebar');
+			$this->load->view('includes/navbar');
 			$this->load->view('customers/add');
 			$this->load->view('includes/footer');
 		// }
@@ -47,7 +47,7 @@ class Customer extends CI_Controller {
 	{
 		$data['title'] = "Customer Details | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('customers/add');
 		$this->load->view('includes/footer');
     }
@@ -57,7 +57,7 @@ class Customer extends CI_Controller {
 	{
 		$data['title'] = "Customers Requirement | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('customers/requirement');
 		$this->load->view('includes/footer');
     }

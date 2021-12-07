@@ -12,7 +12,8 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/plugins/fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/dist/css/adminlte.min.css">
-
+	<!-- iCheck for checkboxes and radio inputs -->
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 	<!-- fullCalendar -->
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/theme/plugins/fullcalendar/main.css">
 	<!-- Ionicons -->

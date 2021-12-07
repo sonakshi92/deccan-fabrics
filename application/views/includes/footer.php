@@ -17,7 +17,7 @@
 
 
 <script>
-	$.widget.bridge('uibutton', $.ui.button)
+	// $.widget.bridge('uibutton', $.ui.button)
 
 </script>
 <!-- Bootstrap 4 -->
@@ -27,8 +27,8 @@
 <!-- Sparkline -->
 <script src="<?php echo base_url(); ?>assets/theme/plugins/sparklines/sparkline.js"></script>
 <!-- JQVMap -->
-<script src="<?php echo base_url(); ?>assets/theme/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/theme/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/theme/plugins/jqvmap/jquery.vmap.min.js"></script> -->
+<!-- <script src="<?php echo base_url(); ?>assets/theme/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
 <!-- jQuery Knob Chart -->
 <script src="<?php echo base_url(); ?>assets/theme/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -39,7 +39,7 @@
 	src="<?php echo base_url(); ?>assets/theme/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
 </script>
 <!-- Summernote -->
-<script src="<?php echo base_url(); ?>assets/theme/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/theme/plugins/summernote/summernote-bs4.min.js"></script> -->
 <!-- overlayScrollbars -->
 <script src="<?php echo base_url(); ?>assets/theme/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js">
 </script>
@@ -48,7 +48,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/theme/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url(); ?>assets/theme/dist/js/pages/dashboard.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/theme/dist/js/pages/dashboard.js"></script> -->
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/theme/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI -->

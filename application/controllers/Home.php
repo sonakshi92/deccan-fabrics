@@ -31,7 +31,7 @@ class Home extends CI_Controller {
 
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('includes/header', $data);
-			$this->load->view('includes/sidebar');
+			$this->load->view('includes/navbar');
 			$this->load->view('home/signUp');
 			$this->load->view('includes/footer');
 		} else{
@@ -64,7 +64,7 @@ class Home extends CI_Controller {
 	{
 		$data['title'] = "Dashboard | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('home/dashboard');
 		$this->load->view('includes/footer');
     }
@@ -73,7 +73,7 @@ class Home extends CI_Controller {
 	{
 		$data['title'] = "Backup | Deccan Fabrics";
 		$this->load->view('includes/header', $data);
-		$this->load->view('includes/sidebar');
+		$this->load->view('includes/navbar');
 		$this->load->view('home/backup');
 		$this->load->view('includes/footer');
     }
@@ -95,7 +95,7 @@ class Home extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('includes/header', $data);
-			$this->load->view('includes/sidebar');
+			$this->load->view('includes/navbar');
 			$this->load->view('home/profile');
 			$this->load->view('includes/footer');
 		} else{

@@ -273,6 +273,11 @@
 						<ul class="nav nav-treeview">
 							<li class="nav-item">
 								<p class="nav-link">
+									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/', 'brand & Categories')?>
+								</p>
+							</li>
+							<li class="nav-item">
+								<p class="nav-link">
 									<i class="far fa-circle nav-icon text-primary"></i><?php echo anchor('stock/balance', 'Stock Balance')?>
 								</p>
 							</li>

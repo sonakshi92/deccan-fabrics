@@ -98,14 +98,14 @@
             <input type="text" class="form-control" name="category_name" id="category_name"  placeholder="Add New Category">
             <small id="cat_error" class="form-text text-muted"></small>
           </div>
-            <label for="exampleInputPassword1">Link to Brands</label>
+            <label>Link to Brands</label>
             <div class="col-sm-6">
             <div class='form-group'>
             <?php
             foreach($brand as $row)
             {?>
                  <div class='form-check'>
-                  <input type='checkbox' class='form-check-input' value='<?php echo $row->id; ?>'  id='<?php echo $row->id; ?>' name='<?php echo $row->name;?>'>
+                  <input type='checkbox' class='form-check-input' value='<?php echo $row->id; ?>'  id='<?php echo $row->id; ?>' name='brand_id[]'>
                   <label class='form-check-label' for='<?php echo $row->id; ?>'> <?php echo $row->name ?>
                   </label>
                   </div>
@@ -121,6 +121,7 @@
     </div>
   </div>
 </div>
+
 <script>
   $('document').ready(function(){
     $("#brand_form").on("submit",function(){
@@ -147,6 +148,29 @@
 			})
 		}
 	  })
-    
+    $("#category_form").on("submit",function(){
+		if ($("#category_name").val() == "") {
+			$("category_name").addClass("border-danger");
+			$("#cat_error").html("<span class='text-danger'>Please Enter Category Name</span>");
+		}else{
+			$.ajax({
+				url : '<?php echo base_url(); ?>stock/addCat',
+				method : "POST",
+				data : $("#category_form").serialize(),
+				success : function(data){
+					if (data == "success") {
+						$("#category_name").removeClass("border-danger");
+						$("#cat_error").html("<span class='text-success'>New Brand Added Successfully..!</span>");
+						$("#category_name").val("");
+						fetch_brand();
+					}else{
+						alert(data);
+            $("#category_name").addClass("border-danger");
+		      	$("#cat_error").html("<span class='text-danger'>" + data + "</span>");
+					}
+				}
+			})
+		}
+	  })
   })
 </script>

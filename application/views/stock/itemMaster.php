@@ -12,8 +12,13 @@
 						<li class="breadcrumb-item"><a href="#"><?php echo  explode('|',trim($title))[0]; ?></a></li>
 						<li class="breadcrumb-item active"><?php echo date('d/m/Y');?></li>
 					</ol>
+					<span class="alert alert-success" id="success"></span>
+					<?php if( $this->session->flashdata('message')) { ?>
+                    <div id="success" class="alert alert-success">
+                        <?php echo $this->session->flashdata('message') ?>
+						<?php } ?>
+                    </div>
 				</div>
-			</div>
 		</div><!-- /.container-fluid -->
 	</section>
 
@@ -24,81 +29,85 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
+							<form id="items">
 							<div class="row">
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Stock No.:</label>
-										<input type="number" class="form-control">
+										<input type="text" name="stock" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Quality No</label>
-										<input type="number" class="form-control">
+										<input type="number" name="quality" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Brand</label>
-										<select name="type" class="form-control">
-											<option>Raymond</option>
-											<option>Jockey</option>
-											<option>Multi-Brand</option>
+										<select name="brand" id="brand" class="form-control" required>
+											<?php
+											foreach($brand as $row)
+											{
+											echo '<option value="'.$row->id.'">'.$row->name.'</option>';
+											}
+											?>
 										</select>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Categories</label>
-										<select name="type" class="form-control">
-											<option>Suiting</option>
-											<option>Shirting</option>
-											<option>Ready Made</option>
-											<option>Suit/Blazer</option>
-											<option>Vest</option>
-											<option>Brief</option>
-											<option>Accessories</option>
-											<option>Bed & Bath</option>
+										<select name="category" id="category" class="form-control" required>
+											<option>Select Category</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Retail Price</label>
-										<input type="number" class="form-control">
+										<input type="number" name="retail" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Purchase Price</label>
-										<input type="number" class="form-control">
+										<input type="number" name="purchase" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Item Description</label>
-										<input type="text" class="form-control">
+										<input type="text" name="description" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Tax</label>
-										<input type="number" class="form-control">
+										<input type="number" name="tax" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>LSQ</label>
-										<input type="number" class="form-control">
+										<input type="number" name="lsq" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>HSN Code</label>
-										<input type="number" class="form-control">
+										<input type="number" name="hsn" class="form-control" required>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<br>
+										<input type="submit" id="addItems" value="Add Details" class="form-control btn btn-primary">
 									</div>
 								</div>
 							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -107,7 +116,7 @@
 	</section>
 
 	<div class="card-body">
-		<table id="example2" class="table table-bordered table-hover table-striped">
+		<table id="itemTable" class="table table-bordered table-hover table-striped">
 			<thead class="table-dark">
 				<tr>
 					<th>Stock No</th>
@@ -123,49 +132,98 @@
 				</tr>
 			</thead>
 			<tbody>
+			<?php
+				foreach($products as $rows)
+				{
+				?>
 				<tr>
-					<td>454254</td>
-					<td>1dfsd5</td>
-					<td>Raymond</td>
-					<td>Suiting</td>
-					<td>1500</td>
-					<td>1100</td>
-					<td>premium suiting</td>
-					<td>5%</td>
-					<td>1575</td>
+					<td><?php echo $rows->stock; ?></td>
+					<td><?php echo $rows->quality; ?></td>
+					<td><?php echo $rows->brand; ?></td>
+					<td><?php echo $rows->category; ?></td>
+					<td><?php echo $rows->retail; ?></td>
+					<td><?php echo $rows->purchase; ?></td>
+					<td><?php echo $rows->description; ?></td>
+					<td><?php echo $rows->tax; ?></td>
+					<td><?php echo $rows->hsn; ?></td>
+					
 					<td><i class="fas fa-edit" style="color:blue"></i>
 						<i class="fas fa-trash" style="color:red"></i>
 					</td>
 				</tr>
-				<tr>
-					<td>4544353254</td>
-					<td>13244dfsd5</td>
-					<td>Jockey</td>
-					<td>Vest</td>
-					<td>500</td>
-					<td>400</td>
-					<td>Gym Vest</td>
-					<td>5%</td>
-					<td>150075</td>
-					<td><i class="fas fa-edit" style="color:blue"></i>
-						<i class="fas fa-trash" style="color:red"></i>
-					</td>
-				</tr>
-				<tr>
-					<td>22254</td>
-					<td>122sd5</td>
-					<td>Raymond</td>
-					<td>Shirting</td>
-					<td>1500</td>
-					<td>1100</td>
-					<td>100% Cotton</td>
-					<td>5%</td>
-					<td>1575</td>
-					<td><i class="fas fa-edit" style="color:blue"></i>
-						<i class="fas fa-trash" style="color:red"></i>
-					</td>
-				</tr>
+				<?php } ?> 
 			</tbody>
 		</table>
+
 	</div>
 </div>
+<script>
+	
+$(document).ready(function(){
+	$('#success').css('display','none');
+	jQuery.extend(jQuery.expr[':'], {
+    focusable: function (el, index, selector) {
+        return $(el).is('a, button, :input, [tabindex]');
+    }
+});
+
+$(document).on('keypress', 'input,select', function (e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        // Get all focusable elements on the page
+        var $canfocus = $(':focusable');
+        var index = $canfocus.index(document.activeElement) + 1;
+        if (index >= $canfocus.length) index = 0;
+        $canfocus.eq(index).focus();
+    }
+});
+
+	$('#brand').change(function(){
+	var brand_id = $('#brand').val();
+	//alert(brand_id);
+	if(brand_id != '')
+	{
+		$.ajax({
+			url:"<?php echo base_url(); ?>stock/fetch_cat",
+			method:"POST",
+			data:{brand_id:brand_id},
+			success:function(data)
+			{
+			alert(data);
+			$('#category').html(data);
+			}
+		});
+		}
+	});
+
+	$("form#items").submit(function(event){
+		event.preventDefault();
+		var formdata = $('#items').serialize();
+		$('#addItems').html(' Please wait.....');
+
+		$.ajax({
+			type: 'POST',
+			url: '<?php echo base_url();?>stock/addToDb',
+			data: formdata,
+			success: function(data){
+				// alert(data);
+				if(data == 'success'){
+					$('#addItems').html(' Add New Customer');
+					$('#items').trigger("reset");
+					$('#error').css('display','none');
+					$('#success').css('display','block');
+					$('#success').html('Items added successfully !');
+					$('#itemTable').DataTable().ajax.reload();
+				//	location.reload();
+				}
+				else{
+					$('#addItems').html(' Add');
+					$('#error').css('display','block');
+					$('#error').html(resp);
+					$('#success').css('display','none');
+				}
+			}
+		});
+	 });
+});
+</script>

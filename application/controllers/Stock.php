@@ -19,7 +19,7 @@ class Stock extends CI_Controller {
     public function index()
 	{
 		$data['title'] = "Stocks Details | Deccan Fabrics";
-		$data['brand'] = $this->Shopper_model->fetch_brand();
+		$data['brand'] = $this->Shopper_model->fetch('brands', 'name');
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/navbar');
 		$this->load->view('stock/index');
@@ -44,7 +44,17 @@ class Stock extends CI_Controller {
 	}
 
 	public function addCat(){
-		$this->form_validation->set_rules('');
+		// print_r($_POST); exit;
+		$brand = implode(',', $this->input->post('brand_id', TRUE));
+		$add_category = array(
+			'name' => $this->input->post('category_name', TRUE),
+			'brand_id' => $brand
+			);
+		// print_r($add_category); exit;
+		$addCat = $this->Shopper_model->insertAll('categories', $add_category);
+		if($addCat == TRUE){
+			echo 'success';
+		}
 	}
 	
 
@@ -69,10 +79,9 @@ class Stock extends CI_Controller {
 	public function vendor()
 	{
 		$data['title'] = "Vendor | Deccan Fabrics";
-		$this->form_validation->set_rules('code', 'Vendor Code', 'trim|required|max_length[6]');
-		$this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[5]|max_length[50]');
-		$this->form_validation->set_rules('address', 'Address', 'trim|required');
-		$this->form_validation->set_rules('state', 'State', 'trim|required');
+		$this->form_validation->set_rules('code', 'Vendor Code', 'trim|max_length[6]');
+		$this->form_validation->set_rules('name', 'Name', 'trim|min_length[5]|max_length[50]');
+		$this->form_validation->set_rules('address', 'Address', 'trim');
 		$this->form_validation->set_rules('phone', 'Phone', 'trim|required');
 		$this->form_validation->set_rules('gst', 'GST', 'trim|required');
 		$this->form_validation->set_rules('type', 'Type', 'trim|required');
@@ -102,11 +111,52 @@ class Stock extends CI_Controller {
 	public function itemMaster()
 	{
 		$data['title'] = "Item Master | Deccan Fabrics";
+		$data['brand'] = $this->Shopper_model->fetch('brands', 'name');
+		$data['products'] = $this->Shopper_model->fetch('inventory', 'id');
 		$this->load->view('includes/header', $data);
 		$this->load->view('includes/navbar');
 		$this->load->view('stock/itemMaster');
 		$this->load->view('includes/footer');
     }
+	function fetch_cat()
+	{
+		//print_r($_POST);exit;
+		if($this->input->post('brand_id')){
+			echo $this->Shopper_model->fetchByID($this->input->post('brand_id'), 'categories', 'brand_id');
+		}
+	}
+	function addToDb()
+	{
+		// print_r($_POST); exit;
+		$this->form_validation->set_rules('stock', 'Stock No.', 'trim|max_length[10]');
+		$this->form_validation->set_rules('quality', 'Quality', 'trim|max_length[20]');
+		if($this->form_validation->run() == FALSE){
+			echo validation_errors();
+		}else{
+
+		$items = array(
+			'stock' => $this->input->post('stock', TRUE),
+			'quality' => $this->input->post('quality', TRUE),
+			'brand' => $this->input->post('brand', TRUE),
+			'category' => $this->input->post('category', TRUE),
+			'retail' => $this->input->post('retail'),
+			'purchase' => $this->input->post('purchase', TRUE),
+			'description' => $this->input->post('description', True),
+			'tax' => $this->input->post('tax', True),
+			'lsq' => $this->input->post('lsq', True),
+			'hsn' => $this->input->post('hsn', True),
+			'created_at' => date('Y-m-d H:i:s', time()),
+			);
+			sleep(3);
+
+			$insert = $this->Shopper_model->insertAll('inventory', $items);
+			if($insert == TRUE){
+				echo 'success';
+			}else{
+				echo 'failed'; 
+			}
+		}
+	}
 
 	public function inward()
 	{

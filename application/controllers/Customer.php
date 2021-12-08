@@ -74,20 +74,6 @@ class Customer extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		if($this->form_validation->run() == FALSE){
 			echo validation_errors();
-		//$this->add();
-		//  $this->load->view('customers/add');
-		//  $array = array(
-		// 	'error'   => true,
-		// 	'fname_error' => form_error('fname'),
-		// 	'lname_error' => form_error('lname'),
-		// 	'email_error' => form_error('email'),
-		// 	'phone_error' => form_error('phone'),
-		// 	'birthday_error' => form_error('birthday'),
-		// 	'address_error' => form_error('address'),
-		// 	'landmark_error' => form_error('landmark')
-		// );
-		// echo json_encode($array);
-
 		}else{
 
 		$custData = array(
@@ -106,7 +92,6 @@ class Customer extends CI_Controller {
 			sleep(3);
 
 			$insert = $this->Shopper_model->addCust($custData);
-
 			if($insert == TRUE){
 				echo 'success';
 			}else{

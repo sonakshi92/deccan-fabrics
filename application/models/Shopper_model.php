@@ -127,13 +127,26 @@ class Shopper_model extends CI_Model {
     }
 
     public function itemMaster($items){
-        $inward = $this->db->insert('inventory', $items);
+        $items = $this->db->insert('inventory', $items);
     }
 
-    function fetch_brand(){
-        $this->db->order_by("name", "ASC");
-        $query = $this->db->get("brands");
+
+    public function fetch($tableName, $orderName){
+        $this->db->order_by($orderName, "ASC");
+        $query = $this->db->get($tableName);
         return $query->result();
+        }
+    
+    public function fetchByID($id, $tableName, $where){
+        $this->db->where($where, $id);
+        $this->db->order_by('name', 'ASC');
+        $query = $this->db->get($tableName);
+        $output = '<option value="">Select Category</option>';
+        foreach($query->result() as $row)
+        {
+        $output .= '<option value="'.$row->id.'">'.$row->name.'</option>';
+        }
+        return $output;
         }
 
 }

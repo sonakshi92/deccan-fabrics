@@ -68,37 +68,38 @@ class Customer extends CI_Controller {
 		$this->form_validation->set_rules('lname', 'Last Name', 'trim|required|max_length[50]');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[customers.email]');
 		$this->form_validation->set_rules('phone','Phone No', 'required|is_unique[customers.phone]');
-		$this->form_validation->set_rules('birthday', 'Date of Birth', 'required');
-		$this->form_validation->set_rules('address', 'Address', 'required');
-		$this->form_validation->set_rules('landmark', 'Landmark', 'trim|required');
-		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		if($this->form_validation->run() == FALSE){
 			echo validation_errors();
 		}else{
 
-		$custData = array(
+		$cust = array(
 			'fname' => $this->input->post('fname', TRUE),
 			'lname' => $this->input->post('lname', TRUE),
 			'email' => $this->input->post('email', TRUE),
 			'phone' => $this->input->post('phone', TRUE),
-			'birthday' => $this->input->post('birthday'),
-			'address' => $this->input->post('address', TRUE),
-			'landmark' => $this->input->post('landmark', True),
-			'city' => $this->input->post('city', True),
-			'state' => $this->input->post('state', True),
-			'country' => $this->input->post('country', True),
 			'created_at' => date('Y-m-d H:i:s', time()),
 			);
-			sleep(3);
 
-			$insert = $this->Shopper_model->addCust($custData);
-			if($insert == TRUE){
+			$cust_id = $this->Shopper_model->insert_id('customers', $cust);
+			$cust_info = array(
+				'customer_id' => $cust_id,
+				'birthday' => $this->input->post('birthday'),
+				'address' => $this->input->post('address', TRUE),
+				'landmark' => $this->input->post('landmark', True),
+				'city' => $this->input->post('city', True),
+				'state' => $this->input->post('state', True),
+				'country' => $this->input->post('country', True),
+				);
+			$custData = $this->Shopper_model->insertAll('customers_info', $cust_info);
+			// sleep(3);
+			if($custData == TRUE){
 				echo 'success';
 			}else{
 				echo 'failed'; 
 			}
 		}
 	}
+
 	function fetch_state()
 	{
 		if($this->input->post('country_id')){

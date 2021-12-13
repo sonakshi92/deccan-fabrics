@@ -10,6 +10,7 @@ class Stock extends CI_Controller {
         $this->load->model('Shopper_model');
         $this->load->helper("security");
         $this->load->helper('date');
+		$this->load->library('cart');
 		if(!($this->session->autenticated || $this->session->check)){
 			$this->session->set_flashdata('message', 'Please Login First');
 			redirect('login');
@@ -117,6 +118,7 @@ class Stock extends CI_Controller {
 		$this->load->view('includes/navbar');
 		$this->load->view('stock/itemMaster');
 		$this->load->view('includes/footer');
+		// echo'<pre>'; print_r($_SESSION);
     }
 	function fetch_cat()
 	{
@@ -125,9 +127,9 @@ class Stock extends CI_Controller {
 			echo $this->Shopper_model->fetchByID($this->input->post('brand_id'), 'categories', 'brand_id');
 		}
 	}
-	function addToDb()
+	function addToSess()
 	{
-		// print_r($_POST); exit;
+		// print_r($_POST);
 		$this->form_validation->set_rules('stock', 'Stock No.', 'trim|max_length[10]');
 		$this->form_validation->set_rules('quality', 'Quality', 'trim|max_length[20]');
 		if($this->form_validation->run() == FALSE){
@@ -135,25 +137,53 @@ class Stock extends CI_Controller {
 		}else{
 
 		$items = array(
-			'stock' => $this->input->post('stock', TRUE),
+			'id' => $this->input->post('stock', TRUE),
+			'qty' => 1,
 			'quality' => $this->input->post('quality', TRUE),
 			'brand' => $this->input->post('brand', TRUE),
 			'category' => $this->input->post('category', TRUE),
 			'retail' => $this->input->post('retail'),
-			'purchase' => $this->input->post('purchase', TRUE),
-			'description' => $this->input->post('description', True),
+			'price' => $this->input->post('purchase', TRUE),
+			'name' => $this->input->post('description', True),
+			'shade' => $this->input->post('shade', True),
+			'size' => $this->input->post('size', True),
 			'tax' => $this->input->post('tax', True),
 			'lsq' => $this->input->post('lsq', True),
 			'hsn' => $this->input->post('hsn', True),
 			'created_at' => date('Y-m-d H:i:s', time()),
 			);
-			sleep(3);
-
-			$insert = $this->Shopper_model->insertAll('inventory', $items);
-			if($insert == TRUE){
-				echo 'success';
-			}else{
-				echo 'failed'; 
+			// print_r($_SESSION);
+			$this->cart->insert($items);
+			echo "success";
+		}
+	}
+	
+	function addToDB()
+	{
+		echo "<h1>Items Inserted</h1> <pre>";
+		$items = $this->cart->contents();
+		$i=0;
+		foreach($items as $item){
+			$itemList[$i]['stock'] = $item['id'];
+			$itemList[$i]['quality'] = $item['quality'];
+			$itemList[$i]['brand'] = $item['brand'];
+			$itemList[$i]['category'] = $item['category'];
+			$itemList[$i]['retail'] = $item['retail'];
+			$itemList[$i]['purchase'] = $item['price'];
+			$itemList[$i]['description'] = $item['name'];
+			$itemList[$i]['shade'] = $item['shade'];
+			$itemList[$i]['size'] = $item['size'];
+			$itemList[$i]['tax'] = $item['tax'];
+			$itemList[$i]['lsq'] = $item['lsq'];
+			$itemList[$i]['hsn'] = $item['hsn'];
+			$itemList[$i]['created_at'] = $item['created_at'];
+			$i++;
+		}
+		if(!empty($itemList)){
+			$insertItems = $this->Shopper_model->insertBatch('inventory', $itemList);
+			if($insertItems){
+				$this->cart->destroy();
+				redirect('stock/itemMaster');
 			}
 		}
 	}

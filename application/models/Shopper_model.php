@@ -11,12 +11,21 @@ class Shopper_model extends CI_Model {
                           ->get();
         return $getDetails->result();
     }
+    public function insert_id($tableName, $data){
+        $this->db->insert($tableName, $data);
+        return $this->db->insert_id();
+    }
 
     public function insertAll($tableName, $data){
         $this->db->insert($tableName, $data);
         return true;
-       // return $this->db->insert_id();
     }
+
+    public function insertBatch($tableName, $data = array()){
+        $this->db->insert_batch($tableName, $data);
+         $insert_id = $this->db->insert_id();return true;
+    }
+
     /*****
      *  Login Controller
      * */
@@ -118,12 +127,6 @@ class Shopper_model extends CI_Model {
      */
     public function addVendor($vendor){
         $ven = $this->db->insert('vendors', $vendor);
-    }
-
-    public function addCust($reg){
-        $this->db->insert('customers', $reg);
-        return true;
-      //  return $this->db->insert_id();
     }
 
     public function itemMaster($items){

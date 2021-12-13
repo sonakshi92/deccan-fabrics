@@ -40,7 +40,7 @@
 								<div class="col-md-2">
 									<div class="form-group">
 										<label>Quality No</label>
-										<input type="number" name="quality" class="form-control" required>
+										<input type="text" name="quality" class="form-control" required>
 									</div>
 								</div>
 								<div class="col-md-2">
@@ -84,6 +84,18 @@
 								</div>
 								<div class="col-md-2">
 									<div class="form-group">
+										<label>Shade</label>
+										<input type="text" name="shade" class="form-control" required>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
+										<label>Size</label>
+										<input type="text" name="size" class="form-control" required>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<div class="form-group">
 										<label>Tax</label>
 										<input type="number" name="tax" class="form-control" required>
 									</div>
@@ -116,7 +128,7 @@
 	</section>
 
 	<div class="card-body">
-		<table id="itemTable" class="table table-bordered table-hover table-striped">
+		<table id="inventory" class="table table-bordered table-hover table-striped">
 			<thead class="table-dark">
 				<tr>
 					<th>Stock No</th>
@@ -126,6 +138,8 @@
 					<th>Retail Price</th>
 					<th>Purchase Price</th>
 					<th>Item Description</th>
+					<th>Shade</th>
+					<th>Size</th>
 					<th>Tax</th>
 					<th>HSN Code</th>
 					<th>Action</th>
@@ -133,19 +147,21 @@
 			</thead>
 			<tbody>
 			<?php
-				foreach($products as $rows)
+				foreach($this->cart->contents() as $rows)
 				{
 				?>
 				<tr>
-					<td><?php echo $rows->stock; ?></td>
-					<td><?php echo $rows->quality; ?></td>
-					<td><?php echo $rows->brand; ?></td>
-					<td><?php echo $rows->category; ?></td>
-					<td><?php echo $rows->retail; ?></td>
-					<td><?php echo $rows->purchase; ?></td>
-					<td><?php echo $rows->description; ?></td>
-					<td><?php echo $rows->tax; ?></td>
-					<td><?php echo $rows->hsn; ?></td>
+					<td><?php echo $rows['id']; ?></td>
+					<td><?php echo $rows['quality']; ?></td>
+					<td><?php echo $rows['brand']; ?></td>
+					<td><?php echo $rows['category']; ?></td>
+					<td><?php echo $rows['retail']; ?></td>
+					<td><?php echo $rows['price']; ?></td>
+					<td><?php echo $rows['name']; ?></td>
+					<td><?php echo $rows['shade']; ?></td>
+					<td><?php echo $rows['size']; ?></td>
+					<td><?php echo $rows['tax']; ?></td>
+					<td><?php echo $rows['hsn']; ?></td>
 					
 					<td><i class="fas fa-edit" style="color:blue"></i>
 						<i class="fas fa-trash" style="color:red"></i>
@@ -154,12 +170,13 @@
 				<?php } ?> 
 			</tbody>
 		</table>
-
+		<input type="submit" id="addToDB" onclick="location.href = '<?php echo base_url(); ?>stock/addToDB';" name="addToDB" value="Store All Products" class="form-control btn btn-primary">
 	</div>
 </div>
 <script>
 	
 $(document).ready(function(){
+	//enter key
 	$('#success').css('display','none');
 	jQuery.extend(jQuery.expr[':'], {
     focusable: function (el, index, selector) {
@@ -189,7 +206,7 @@ $(document).on('keypress', 'input,select', function (e) {
 			data:{brand_id:brand_id},
 			success:function(data)
 			{
-			alert(data);
+			// alert(data);
 			$('#category').html(data);
 			}
 		});
@@ -200,26 +217,25 @@ $(document).on('keypress', 'input,select', function (e) {
 		event.preventDefault();
 		var formdata = $('#items').serialize();
 		$('#addItems').html(' Please wait.....');
-
 		$.ajax({
 			type: 'POST',
-			url: '<?php echo base_url();?>stock/addToDb',
+			url: '<?php echo base_url();?>stock/addToSess',
 			data: formdata,
 			success: function(data){
-				// alert(data);
+				alert(data);
 				if(data == 'success'){
 					$('#addItems').html(' Add New Customer');
 					$('#items').trigger("reset");
 					$('#error').css('display','none');
 					$('#success').css('display','block');
 					$('#success').html('Items added successfully !');
-					$('#itemTable').DataTable().ajax.reload();
-				//	location.reload();
+					// $('#inventory').DataTable().ajax.reload();
+					location.reload();
 				}
 				else{
 					$('#addItems').html(' Add');
 					$('#error').css('display','block');
-					$('#error').html(resp);
+					$('#error').html(data);
 					$('#success').css('display','none');
 				}
 			}
